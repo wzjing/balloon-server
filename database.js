@@ -1,12 +1,8 @@
-let sql = require('mysql');
-let connection = sql.createConnection({
-    host: 'localhost:3306',
-    port: '3306',
-    user: 'wzjing',
+let mysql = require('mysql');
+let database = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
     password: 'wzjwzjylz',
     database: 'balloom'
 });
-
-connection.connect();
-
-module.exports = connection;
+module.exports = database;
