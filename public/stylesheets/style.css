@@ -11,9 +11,6 @@ body {
   padding: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
-a {
-  color: #00B7FF; }
-
 .appbar {
   box-shadow: 0 1px 10px 1px rgba(0, 0, 0, 0.16);
   margin: 0;
@@ -23,26 +20,43 @@ a {
   display: block; }
 
 .toolbar {
-  padding: 8px 16px 8px 16px;
+  margin: 0;
   white-space: nowrap; }
 
+.logo {
+  margin: 6px 12px 6px 12px;
+  display: inline-block; }
+  .logo img {
+    width: 48px;
+    height: 48px; }
+
 .toolbar-title {
-  text-decoration: none;
+  position: absolute;
   display: inline-block;
+  margin: 18px 72px 18px 12px;
   cursor: pointer;
-  height: 44px;
-  line-height: 44px;
   font-size: 20px;
-  font-weight: bold; }
+  font-weight: bold;
+  line-height: 24px; }
 
-.login {
-  float: right;
-  right: 88%;
+.account {
+  position: absolute;
+  display: inline-block;
+  right: 10px;
+  margin: 12px 0;
+  padding: 0 10px;
+  height: 36px;
   cursor: pointer;
-  line-height: 44px; }
+  box-shadow: 0 1px 6px 0 rgba(255, 0, 0, 0.16);
+  border-radius: 4px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 36px;
+  background: #FF4D4D; }
 
-a {
+.text-button {
   text-decoration: none;
-  font-weight: bold; }
+  font-weight: bold;
+  color: #ffffff; }
 
 /*# sourceMappingURL=style.css.map */

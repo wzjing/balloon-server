@@ -3,8 +3,10 @@ extends layout
 block content
   .appbar
     .toolbar
-      span.toolbar-title Balloom
-      span.login
-        a(href='/Login') Login
+      .logo
+        img(src='/images/logo.png')
+      .toolbar-title Balloom
+      .account
+        a.text-button(href='/Login') 登陆
         | &#160|&#160
-        a(href='/Register') Register
+        a.text-button(href='/Register') 注册
