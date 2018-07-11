@@ -1,15 +1,15 @@
-doctype html
-html
-    head
-        title= title
-        link(rel='stylesheet', href='/stylesheets/login.css')
-    body
-        .center
-            form
-                input(type='text', name='username', placeholder='username')
-                br
-                input(type='password', name='password', placeholder='password')
-                br
-                input.login-button(type='submit', name='login', value='login')
+extends layout
+block head
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/login.css')
+block content
+  .center
+    form
+      input(type='text', name='username', placeholder='username')
+      br
+      input(type='password', name='password', placeholder='password')
+      br
+      input.login-button(type='submit', name='login', value='login')
 
 

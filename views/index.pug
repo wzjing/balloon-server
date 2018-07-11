@@ -1,4 +1,7 @@
 extends layout
+block head
+  title= title
+  link(rel='stylesheet', href='/stylesheets/style.css')
 
 block content
   .appbar
@@ -6,7 +9,4 @@ block content
       .logo
         img(src='/images/logo.png')
       .toolbar-title Balloom
-      .account
-        a.text-button(href='/Login') 登陆
-        | &#160|&#160
-        a.text-button(href='/Register') 注册
+      a.text-button(href='/Login') Login

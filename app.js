@@ -4,6 +4,7 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let sassMiddleware = require('node-sass-middleware');
+let favicon = require('serve-favicon');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
@@ -28,6 +29,7 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public/images/favicon.ico')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
