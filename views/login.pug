@@ -4,12 +4,22 @@ block head
     title= title
     link(rel='stylesheet', href='/stylesheets/login.css')
 block content
-  .center
-    form
-      input(type='text', name='username', placeholder='username')
-      br
-      input(type='password', name='password', placeholder='password')
-      br
-      input.login-button(type='submit', name='login', value='login')
+  .appbar
+    .toolbar
+      .logo
+        img(src='/images/logo.png')
+      .toolbar-title Balloon
+  .content
+    .login-panel
+      img(src='/images/logo.png', width=80, height=80)
+      form.login(method='POST')
+        input.text-input(type='text', name='username', placeholder='username')
+        br
+        input.text-input(type='password', name='password', placeholder='password')
+        .forgot-pass Forgot Password?
+        input.login-button(type='submit', value='login')
+  script.
+    let center = document.querySelector('.login-panel');
+    center.style.top = '100px';
 
 

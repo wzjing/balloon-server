@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 let app = require('../app');
-const debug = require('debug')('balloom:server');
+const debug = require('debug')('balloon:server');
 const http = require('http');
 
 /**
