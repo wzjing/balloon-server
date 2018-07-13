@@ -8,7 +8,7 @@ block content
     .toolbar
       .logo
         img(src='/images/logo.png')
-      .toolbar-title Balloon
+      a.toolbar-title(href='/') Balloon
   .content
     .login-panel
       img(src='/images/logo.png', width=80, height=80)
@@ -17,6 +17,7 @@ block content
         br
         input.text-input(type='password', name='password', placeholder='password')
         .forgot-pass Forgot Password?
+        .error-info
         input.login-button(type='submit', value='login')
   script.
     let center = document.querySelector('.login-panel');
