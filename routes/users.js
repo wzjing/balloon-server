@@ -1,10 +1,9 @@
 let express = require('express');
 let router = express.Router();
-let database = require('../database');
+let database = require('../utils/database');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  // database.connect();
   database.query('SELECT * FROM users', (error, results, fields) => {
       if (error) {
         res.send('Error: ' + error)
@@ -16,7 +15,6 @@ router.get('/', function(req, res, next) {
           }
       }
     });
-  // database.end();
 });
 
 module.exports = router;
