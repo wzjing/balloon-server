@@ -4,9 +4,13 @@ block head
   link(rel='stylesheet', href='/stylesheets/index.css')
 
 block content
-  .appbar
-    .toolbar
-      .logo
-        img(src='/images/logo.png')
-      a.toolbar-title(href='#') Balloon
-      a.text-button(href='/Login') Login
+
+  .toolbar
+    img.logo(src='/images/logo.png')
+    a.toolbar-title(href='#') Balloon
+    a.login-button(href='/Login') LOGIN
+    .menu-group
+      a.menu(href='/user') User
+      a.menu(href='/express') Express
+      a.menu(href='/service') Service
+      a.menu(href='/about') About

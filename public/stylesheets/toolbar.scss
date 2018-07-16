@@ -18,18 +18,18 @@ body {
 .toolbar {
   margin: 0;
   white-space: nowrap;
+  text-align: left;
 }
 
 .logo {
   margin: 6px 12px 6px 12px;
   display: inline-block;
-  img {
-    width: $logo-size;
-    height: $logo-size;
-  }
+  width: $logo-size;
+  height: $logo-size;
 }
 
 .toolbar-title {
+  font-family: 'Lucida Handwriting', serif;
   position: absolute;
   display: inline-block;
   margin: 18px 72px 18px 12px;

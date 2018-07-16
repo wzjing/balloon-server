@@ -18,14 +18,38 @@
   background: #FF4D4D;
 }
 
-a.text-button {
+a.login-button {
   position: absolute;
   display: inline-block;
   right: 24px;
   margin: 20px 0;
+  padding: 6px 16px;
+  border-radius: 4px;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  color: #989898;
+  font-size: 12px;
+  border: 1px #989898 solid;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  &:hover{
+    background-color: #EFEFEF;
+  }
+  &:active{
+    background-color: black;
+    color: white;
+  }
+}
+
+.menu-group {
+  position: absolute;
+  display: inline-block;
+  right: 140px;
+  top: 28px;
+}
+
+.menu{
+  text-decoration: none;
+  color: black;
+  margin: 0 30px;
   cursor: pointer;
 }

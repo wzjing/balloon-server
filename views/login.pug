@@ -4,20 +4,30 @@ block head
     title= title
     link(rel='stylesheet', href='/stylesheets/login.css')
 block content
-  .appbar
+  .login-panel
     .toolbar
-      .logo
-        img(src='/images/logo.png')
-      a.toolbar-title(href='/') Balloon
-  .content
-    .login-panel
-      img(src='/images/logo.png', width=80, height=80)
-      form.login(method='POST')
-        input.text-input(type='text', name='username', placeholder='username')
-        br
-        input.text-input(type='password', name='password', placeholder='password')
-        .forgot-pass Forgot Password?
-        .error-info
-        input.login-button(type='submit', value='login')
+      img.logo(src='/images/logo.png')
+    .title Sign In
+    form.login(method='POST')
+      .hint username
+      input.text-input(type='text', name='username', placeholder='phone or email')
+      br
+      .hint password
+      input.text-input(type='password', name='password', placeholder='your password')
+      .forgot-pass Forgot Password?
+      .error-info
+      .button-group
+        .button-wrapper
+          .login-button Login
+        .button-wrapper
+          .register-button Register
+  .content-panel
+    | Content
   script.
-      let center = document.querySelector('.login-panel');
+      let text_input = document.querySelectorAll('.text-input');
+      text_input.forEach(function(el) {
+          console.log(getComputedStyle(el, null).getPropertyValue('width'))
+          el.style.paddingLeft = '12px';
+          el.style.paddingRight = '12px';
+          el.style.width = `${parseFloat(getComputedStyle(el, null).getPropertyValue('width').replace('px', '')) - 24}px`;
+      })

@@ -12,16 +12,17 @@ body {
 
 .toolbar {
   margin: 0;
-  white-space: nowrap; }
+  white-space: nowrap;
+  text-align: left; }
 
 .logo {
   margin: 6px 12px 6px 12px;
-  display: inline-block; }
-  .logo img {
-    width: 48px;
-    height: 48px; }
+  display: inline-block;
+  width: 48px;
+  height: 48px; }
 
 .toolbar-title {
+  font-family: 'Lucida Handwriting', serif;
   position: absolute;
   display: inline-block;
   margin: 18px 72px 18px 12px;
@@ -35,26 +36,57 @@ body {
 .content {
   text-align: center; }
 
-.login-panel {
-  position: relative;
-  display: inline-block;
-  padding: 30px 60px 50px;
-  margin: 100px 0;
-  text-align: center;
-  box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.16); }
+body {
+  display: flex;
+  min-width: 800px; }
 
-form.login {
+.login-panel {
+  flex: 1;
+  display: inline-block;
+  top: 0;
+  width: 50%;
+  height: 100%;
   text-align: center; }
 
+.content-panel {
+  flex: 2;
+  display: inline-block;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: black; }
+  @media only screen and (max-width: 1000px) {
+    .content-panel {
+      flex: 1; } }
+
+.title {
+  width: 60%;
+  margin: 30px auto 0;
+  text-align: left;
+  font-size: 28px;
+  font-family: "Helvetica", monospace; }
+
+form.login {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  background-color: white; }
+
+.hint {
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  padding: 0;
+  margin: 16px 0 4px; }
+
 .text-input {
-  margin: 12px 0;
-  padding: 2px 6px;
-  border: 1.6px none rgba(0, 0, 0, 0.7);
-  border-bottom-style: solid;
+  width: 100%;
+  height: 36px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   outline: none;
   font-size: 14px; }
   .text-input:focus {
-    border-color: #FF7335; }
+    border-color: #000000; }
   .text-input::-webkit-input-placeholder {
     color: rgba(0, 0, 0, 0.32); }
 
@@ -62,7 +94,8 @@ form.login {
   font-size: 12px;
   color: rgba(0, 0, 0, 0.32);
   text-align: end;
-  cursor: pointer; }
+  cursor: pointer;
+  margin: 6px 0 0; }
 
 .error-info {
   margin: 20px 0 0;
@@ -70,20 +103,47 @@ form.login {
   color: #f00;
   text-align: center; }
 
-.login-button {
-  background: #FF7335;
-  width: 160px;
-  height: 30px;
+.button-group {
+  width: 100%;
+  display: flex; }
+
+.button, .login-button, .register-button {
+  display: inline-block;
+  width: 60px;
   margin: 15px 0 0;
-  padding: 4px 6px 4px 6px;
-  border-radius: 4px;
-  color: #fff;
+  padding: 10px 12px;
+  border-radius: 2px;
   outline: none;
-  border: none; }
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.button-wrapper {
+  display: inline-block;
+  flex: 1; }
+
+.login-button {
+  background: #000000;
+  color: #fff; }
   .login-button:hover {
-    background: #ff552f; }
+    background: #444444; }
   .login-button:active {
-    background: #ff552f;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16); }
+    background: #444444;
+    box-shadow: 0 3px 8px 1px rgba(0, 0, 0, 0.16); }
+
+.register-button {
+  background: white;
+  color: black;
+  border: 1px rgba(0, 0, 0, 0.54) solid; }
+  .register-button:hover {
+    background: #EFEFEF; }
+  .register-button:active {
+    background: #CFCFCF;
+    box-shadow: 0 3px 8px 1px rgba(0, 0, 0, 0.16); }
 
 /*# sourceMappingURL=login.css.map */
