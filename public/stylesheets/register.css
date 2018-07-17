@@ -1,66 +1,77 @@
-/*
-Error: Invalid CSS after "...-primary-dark: ": expected expression (e.g. 1px, bold), was "#4444;"
-        on line 2 of theme.scss
-        from line 1 of register.scss
+@font-face {
+  font-family: Logo;
+  src: url("/fonts/signpainter_regular.ttf");
+  font-weight: normal; }
+.logo-icon, .toolbar-logo {
+  background: url("/images/logo_icon.svg");
+  width: 48px;
+  height: 48px; }
 
-1: $color-primary: #000000;
-2: $color-primary-dark: #4444;
+.logo {
+  background: url("/images/logo.svg"); }
 
-Backtrace:
-theme.scss:2
-register.scss:1
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:1278:in `expected'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/script/lexer.rb:231:in `expected!'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/script/parser.rb:724:in `assert_expr'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/script/parser.rb:68:in `parse'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:1134:in `sass_script'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:642:in `variable'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:696:in `block_child'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:689:in `block_contents'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:137:in `stylesheet'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:41:in `parse'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:414:in `_to_tree'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:321:in `to_tree'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:327:in `block in visit_import'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/stack.rb:88:in `block in with_import'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/stack.rb:135:in `with_frame'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/stack.rb:88:in `with_import'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/base.rb:36:in `visit'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/stack.rb:79:in `block in with_base'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/stack.rb:135:in `with_frame'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/stack.rb:79:in `with_base'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:162:in `visit'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/base.rb:52:in `map'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/base.rb:36:in `visit'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:161:in `visit'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/visitors/perform.rb:10:in `visit'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/root_node.rb:36:in `css_tree'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:307:in `render_with_sourcemap'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:209:in `each'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/plugin.rb:82:in `update_stylesheets'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/exec/sass_scss.rb:51:in `process_result'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/exec/base.rb:52:in `parse'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/exec/base.rb:19:in `parse!'
-E:/Program/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/bin/scss:13:in `<top (required)>'
-E:/Program/Ruby24-x64/bin/scss:23:in `load'
-E:/Program/Ruby24-x64/bin/scss:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"...-primary-dark: \": expected expression (e.g. 1px, bold), was \"#4444;\"\A         on line 2 of theme.scss\A         from line 1 of register.scss\A \A 1: $color-primary: #000000;\A 2: $color-primary-dark: #4444;"; }
+.logo-colored {
+  background: url("/images/logo-colored.svg"); }
+
+.text-logo, .toolbar-title {
+  font-family: 'Logo', sans-serif;
+  font-size: 28px;
+  letter-spacing: 4px;
+  font-weight: normal; }
+
+@font-face {
+  font-family: Logo;
+  src: url("/fonts/signpainter_regular.ttf");
+  font-weight: normal; }
+.logo-icon, .toolbar-logo {
+  background: url("/images/logo_icon.svg");
+  width: 48px;
+  height: 48px; }
+
+.logo {
+  background: url("/images/logo.svg"); }
+
+.logo-colored {
+  background: url("/images/logo-colored.svg"); }
+
+.text-logo, .toolbar-title {
+  font-family: 'Logo', sans-serif;
+  font-size: 28px;
+  letter-spacing: 4px;
+  font-weight: normal; }
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+.toolbar {
+  height: 60px;
+  margin: 0;
+  white-space: nowrap;
+  text-align: left; }
+
+.toolbar-logo {
+  margin: 6px 12px 6px 12px;
+  display: inline-block; }
+
+.toolbar-title {
+  position: absolute;
+  display: inline-block;
+  margin: 24px 72px auto 12px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  line-height: 24px; }
+
+.content {
+  text-align: center; }
+
+/*# sourceMappingURL=register.css.map */

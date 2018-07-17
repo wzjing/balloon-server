@@ -18,28 +18,41 @@ body{
 }
 
 .content-panel {
-  flex: 2;
+  flex: 1;
   display: inline-block;
   top: 0;
   width: 50%;
   height: 100%;
   background-color: black;
+  text-align: center;
   @media only screen and (max-width: 1000px){
     flex: 1;
   }
 }
 
-.title {
+.poster {
+  position: relative;
+  margin: 50% auto auto;
+  transform: translateY(-50%);
+}
+
+.logo-pic {
+  margin-top: 40px;
+}
+
+.logo-title {
+  font-family: "Logo", monospace;
   width: $input-width;
-  margin: 30px auto 0;
-  text-align: left;
-  font-size: 28px;
-  font-family: "Helvetica", monospace;
+  margin: 12px auto 0;
+  text-align: center;
+  font-size: 26px;
+  letter-spacing: 6px;
+  font-weight: bold;
 }
 
 form.login {
   width: $input-width;
-  margin: auto;
+  margin: 60px auto 0;
   text-align: center;
   background-color: white;
 }
@@ -47,9 +60,9 @@ form.login {
 .hint {
   width: 100%;
   text-align: left;
-  font-size: 14px;
-  padding: 0;
-  margin: 16px 0 4px;
+  font-size: 12px;
+  margin: 16px 0 8px;
+  padding: 0 0 0 8px;
 }
 
 .text-input {
@@ -57,12 +70,12 @@ form.login {
   height: 36px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   outline: none;
-  font-size: 14px;
+  font-size: 12px;
   &:focus {
     border-color: $color-primary;
   }
   &::-webkit-input-placeholder{
-    color: rgba(#000, 0.32);
+    color: rgba(#000, 0.54);
   }
 }
 
@@ -83,7 +96,7 @@ form.login {
 
 .button-group {
   width: 100%;
-  display: flex;
+  text-align: left;
 }
 
 .button {
@@ -105,7 +118,6 @@ form.login {
 
 .button-wrapper {
   display: inline-block;
-  flex: 1;
 }
 
 .login-button {
@@ -126,6 +138,7 @@ form.login {
   background: white;
   color: black;
   border: 1px rgba(#000, 0.54) solid;
+  margin-left: 30px;
   &:hover {
     background: #EFEFEF;
   }

@@ -4,28 +4,31 @@ block head
     title= title
     link(rel='stylesheet', href='/stylesheets/login.css')
 block content
-  .login-panel
+  .content-panel
     .toolbar
-      img.logo(src='/images/logo.png')
-    .title Sign In
+      .toolbar-logo
+      .toolbar-title(style="color:white;") Balloon
+    img.poster(src='/images/logo.svg', width=240, height=240)
+  .login-panel
+    img.logo-pic(src='/images/logo_colored.svg', width=90, height=90)
+    .logo-title Balloon
     form.login(method='POST')
-      .hint username
-      input.text-input(type='text', name='username', placeholder='phone or email')
+      .hint 账号
+      input.text-input(type='text', name='username', placeholder='手机号或邮箱')
       br
-      .hint password
-      input.text-input(type='password', name='password', placeholder='your password')
-      .forgot-pass Forgot Password?
+      .hint 密码
+      input.text-input(type='password', name='password', placeholder='密码')
+      .forgot-pass 忘记密码?
       .error-info
       .button-group
         .button-wrapper
-          .login-button Login
+          .login-button 登陆
         .button-wrapper
-          .register-button Register
-  .content-panel
-    | Content
+          .register-button 注册
+
   script.
       let text_input = document.querySelectorAll('.text-input');
-      text_input.forEach(function(el) {
+      text_input.forEach(function (el) {
           console.log(getComputedStyle(el, null).getPropertyValue('width'))
           el.style.paddingLeft = '12px';
           el.style.paddingRight = '12px';
