@@ -64,4 +64,5 @@ typings/
 
 # ide configure
 /.idea/watcherTasks.xml
-/.idea/balloon.iml
+/.idea/*.iml
+/.idea/modules.xml

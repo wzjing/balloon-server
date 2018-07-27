@@ -67,7 +67,9 @@ form.login {
 
 .text-input {
   width: 100%;
+  box-sizing: border-box;
   height: 36px;
+  padding: 0 12px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   outline: none;
   font-size: 12px;

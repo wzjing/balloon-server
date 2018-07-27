@@ -9,12 +9,8 @@ let option = {
     signed: false
 };
 
-/* GET users listing. */
-router.get('/', function (req, res, next) {
-    res.render('login', {title: 'Login', error: 'Wrong pass'})
-});
-
 router.post('/', function (req, res, next) {
+    console.log('username', req.body.username);
     db.query(`SELECT * FROM users WHERE username='${req.body.username}'`, (error, results, fields) => {
         if (error) {
             console.log(error);
@@ -24,9 +20,9 @@ router.post('/', function (req, res, next) {
         if (results[0] === undefined) {
             res.send('no user')
         } else {
-            res.cookie('token', token.sign({username: results[0].username}));
+            res.cookie('token', token.sign({username: results[0].username}), option);
+            res.send('cookie set')
         }
-        res.send('cookie set')
     });
 });
 

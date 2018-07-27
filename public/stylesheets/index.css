@@ -2,6 +2,7 @@
   font-family: Logo;
   src: url("/fonts/signpainter_regular.ttf");
   font-weight: normal; }
+
 .logo-icon, .toolbar-logo {
   background: url("/images/logo_icon.svg");
   width: 48px;
@@ -23,6 +24,7 @@
   font-family: Logo;
   src: url("/fonts/signpainter_regular.ttf");
   font-weight: normal; }
+
 .logo-icon, .toolbar-logo {
   background: url("/images/logo_icon.svg");
   width: 48px;
@@ -74,6 +76,9 @@ body {
 .content {
   text-align: center; }
 
+body {
+  min-width: 800px; }
+
 .account {
   position: absolute;
   display: inline-block;
@@ -91,10 +96,9 @@ body {
   background: #FF4D4D; }
 
 a.login-button {
-  position: absolute;
+  float: right;
   display: inline-block;
-  right: 24px;
-  margin: 20px 0;
+  margin: 20px 20px;
   padding: 6px 16px;
   border-radius: 4px;
   text-decoration: none;
@@ -110,16 +114,15 @@ a.login-button {
     color: white; }
 
 .menu-group {
-  position: absolute;
   display: inline-block;
-  right: 140px;
-  top: 28px; }
+  float: right;
+  margin: 28px 0 0 160px; }
 
 .menu {
   font-family: 'Noto Sans', sans-serif;
   text-decoration: none;
   color: black;
-  margin: 0 30px;
+  margin: 0 26px;
   cursor: pointer; }
 
 /*# sourceMappingURL=index.css.map */

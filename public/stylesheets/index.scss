@@ -1,6 +1,10 @@
 @import "theme.scss";
 @import "toolbar.scss";
 
+body {
+  min-width: 800px;
+}
+
 .account {
   position: absolute;
   display: inline-block;
@@ -19,10 +23,9 @@
 }
 
 a.login-button {
-  position: absolute;
+  float: right;
   display: inline-block;
-  right: 24px;
-  margin: 20px 0;
+  margin: 20px 20px;
   padding: 6px 16px;
   border-radius: 4px;
   text-decoration: none;
@@ -41,16 +44,15 @@ a.login-button {
 }
 
 .menu-group {
-  position: absolute;
   display: inline-block;
-  right: 140px;
-  top: 28px;
+  float: right;
+  margin: 28px 0 0 160px;
 }
 
 .menu{
   font-family: 'Noto Sans', sans-serif;
   text-decoration: none;
   color: black;
-  margin: 0 30px;
+  margin: 0 26px;
   cursor: pointer;
 }

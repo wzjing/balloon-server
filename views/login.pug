@@ -3,6 +3,7 @@ block head
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/login.css')
+    script(src='/javascripts/ajax.js')
 block content
   .content-panel
     .toolbar
@@ -14,23 +15,39 @@ block content
     .logo-title Balloon
     form.login(method='POST')
       .hint 账号
-      input.text-input(type='text', name='username', placeholder='手机号或邮箱')
+      input.text-input(id='username', type='text', name='username', placeholder='手机号或邮箱')
       br
       .hint 密码
-      input.text-input(type='password', name='password', placeholder='密码')
+      input.text-input(id='password', type='password', name='password', placeholder='密码')
       .forgot-pass 忘记密码?
       .error-info
       .button-group
         .button-wrapper
-          .login-button 登陆
+          .login-button(onclick='login()') 登陆
         .button-wrapper
-          .register-button 注册
+          .register-button(onclick="javascript:window.location.href='/register'") 注册
 
   script.
-      let text_input = document.querySelectorAll('.text-input');
-      text_input.forEach(function (el) {
-          console.log(getComputedStyle(el, null).getPropertyValue('width'))
-          el.style.paddingLeft = '12px';
-          el.style.paddingRight = '12px';
-          el.style.width = `${parseFloat(getComputedStyle(el, null).getPropertyValue('width').replace('px', '')) - 24}px`;
-      })
+      function login() {
+          let username = document.querySelector('#username').value;
+          let password = document.querySelector('#password').value;
+          ajax({
+              method: 'POST',
+              url: '/api/login',
+              data: {username: username, password: password},
+              success: function (status, data) {
+                  window.location.href = '/'
+                  console.log('success', data)
+              },
+              error: function (error, message) {
+                  console.error('error', message)
+              }
+          })
+      }
+      // let text_input = document.querySelectorAll('.text-input');
+      // text_input.forEach(function (el) {
+      //     console.log(getComputedStyle(el, null).getPropertyValue('width'))
+      //     el.style.paddingLeft = '12px';
+      //     el.style.paddingRight = '12px';
+      //     el.style.width = `${parseFloat(getComputedStyle(el, null).getPropertyValue('width').replace('px', '')) - 24}px`;
+      // })

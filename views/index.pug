@@ -2,14 +2,17 @@ extends layout
 block head
   title= title
   link(rel='stylesheet', href='/stylesheets/index.css')
-
 block content
   .toolbar
-    img.toolbar-logo(src='/images/logo.svg')
+    img.toolbar-logo(src='/images/logo_colored.svg')
     a.toolbar-title(href='#') Balloon
-    a.login-button(href='/Login') LOGIN
+    if username
+      a.login-button(href='/Login')= username
+    else
+      a.login-button(href='/Login') Login
     .menu-group
-      a.menu(href='/user') User
-      a.menu(href='/express') Express
-      a.menu(href='/service') Service
-      a.menu(href='/about') About
+      a.menu(href='/user') 用户端
+      a.menu(href='/express') 快递员
+      a.menu(href='/service') 服务说明
+      a.menu(href='/about') 关于
+  script.
