@@ -16,6 +16,7 @@ let registerRouter = require('./routes/register');
 // API
 let loginAPI = require('./api/login');
 let registerAPI = require('./api/register');
+let avatarAPI = require('./api/avatar');
 
 let app = express();
 
@@ -42,9 +43,10 @@ app.use('/users', usersRouter);
 app.use('/workers', workerRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
-
+// API
 app.use('/api/login', loginAPI);
 app.use('/api/register', registerAPI);
+app.use('/api/avatar', avatarAPI);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

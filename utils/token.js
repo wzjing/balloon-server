@@ -1,11 +1,12 @@
 const jwt = require("jsonwebtoken");
 
 const secret = 'KJFISHB182646';
+const validTime = '2days';
 
 function sign(payload) {
     let token;
     try {
-        token = jwt.sign(payload, secret, {expiresIn: '2days'});
+        token = jwt.sign(payload, secret, {expiresIn: validTime});
     } catch (e) {
         console.error(`Unable to sign Token: ${e}`);
         return undefined

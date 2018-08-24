@@ -7,9 +7,11 @@ block content
     img.toolbar-logo(src='/images/logo_colored.svg')
     a.toolbar-title(href='#') Balloon
     if username
-      a.login-button(href='/Login')= username
+      .avatar-layout
+        img.avatar(src='/api/avatar?username=' + username)
+        .username= username
     else
-      a.login-button(href='/Login') Login
+      .login-button(onclick="javascripts:window.location.href='/Login'") Login
     .menu-group
       a.menu(href='/user') 用户端
       a.menu(href='/express') 快递员

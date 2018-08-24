@@ -95,7 +95,7 @@ body {
   color: #ffffff;
   background: #FF4D4D; }
 
-a.login-button {
+.login-button {
   float: right;
   display: inline-block;
   margin: 20px 20px;
@@ -107,11 +107,31 @@ a.login-button {
   background-color: white;
   color: black;
   cursor: pointer; }
-  a.login-button:hover {
+  .login-button:hover {
     background-color: #EFEFEF; }
-  a.login-button:active {
+  .login-button:active {
     background-color: black;
     color: white; }
+
+.avatar-layout {
+  float: right;
+  display: inline-block;
+  margin: 8px 10px;
+  padding: 0;
+  cursor: pointer; }
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  display: block;
+  border-radius: 16px;
+  padding: 0;
+  margin: 0; }
+
+.username {
+  font-size: 12px;
+  padding: 0;
+  margin: 0; }
 
 .menu-group {
   display: inline-block;

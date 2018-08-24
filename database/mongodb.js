@@ -62,9 +62,27 @@ function verifyUser(username, password, callback) {
     });
 }
 
+function getUser(username, callback) {
+    MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
+        assert.equal(null, err);
+        const db = client.db(userDb);
+        const collection = db.collection(userCollection);
+        collection.find({username: username}).toArray((err, docs) => {
+            if (docs.length === 0) {
+                console.error(`no user of username: ${username}`);
+                callback(INVALID_USER, null)
+            } else  {
+                callback(null, docs[0])
+            }
+        });
+        client.close();
+    })
+}
+
 module.exports = {
     query: query,
     verifyUser: verifyUser,
+    getUser: getUser,
     LOGIN_SUCCESS: LOGIN_SUCCESS,
     INVALID_USER: INVALID_USER,
     WRONG_PASSWORD: WRONG_PASSWORD
