@@ -1,0 +1,8 @@
+extends layout
+block head
+  head
+    title= title
+block content
+  form#avatar(method='post', action='/api/avatar/upload', enctype='multipart/form-data')
+    input#uploadfile(name='avatar', type='file')
+    input(type='submit', value='上传')
