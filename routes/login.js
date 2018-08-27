@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
-let db = require('../database/mysql');
+// let db = require('../database/mysql');
+const db = require("../database/mongodb");
 let token = require('../utils/token');
 
 let option = {
@@ -15,18 +16,28 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    db.query(`SELECT * FROM users WHERE username='${req.body.username}'`, (error, results, fields) => {
-        if (error) {
-            console.log(error);
-            res.send(error)
-        }
-
-        if (results[0] === undefined) {
+    // db.query(`SELECT * FROM users WHERE username='${req.body.username}'`, (error, results, fields) => {
+    //     if (error) {
+    //         console.log(error);
+    //         res.send(error)
+    //     }
+    //
+    //     if (results[0] === undefined) {
+    //         res.send('no user')
+    //     } else {
+    //         res.cookie('token', token.sign({username: results[0].username}));
+    //     }
+    //     res.send('cookie set')
+    // });
+    db.verifyUser(req.body.username, req.body.password, (error, user) => {
+        if (error === db.INVALID_USER) {
             res.send('no user')
+        } else if (error === db.WRONG_PASSWORD){
+            res.send('wrong password')
         } else {
-            res.cookie('token', token.sign({username: results[0].username}));
+            res.cookie('token', token.sign({username: user.username}), option);
+            res.send('cookie set')
         }
-        res.send('cookie set')
     });
 });
 

@@ -3,6 +3,7 @@ const express = require('express');
 const fs = require('fs');
 const multer = require('multer');
 const db = require('../database/mongodb');
+const tokenUtil = require('../utils/token');
 
 let router = express.Router();
 
@@ -18,7 +19,7 @@ router.get('/', function (req, res, next) {
                 stream.on('data', chunck => {
                     responseData.push(chunck)
                 });
-                stream.on('end', ()=>{
+                stream.on('end', () => {
                     let finalData = Buffer.concat(responseData);
                     res.write(finalData);
                     res.end()
@@ -28,22 +29,23 @@ router.get('/', function (req, res, next) {
     })
 });
 
-let storage = multer.diskStorage({
+const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, '/Users/wzjing/balloondb/images')
     },
-    filename: (req, file, cb)=> {
-        let fileFormat = (file.originalname).split(".");
-        cb(null, file.fieldname + '-' + Date.now() + "." + fileFormat[fileFormat.length - 1])
+    filename: (req, file, cb) => {
+        let decoded = tokenUtil.verify(req.cookies.token);
+        if (decoded) {
+            let fileFormat = (file.originalname).split(".");
+            cb(null, file.fieldname + '-' + Date.now() + "." + fileFormat[fileFormat.length - 1])
+        }
     }
 });
 
-let uploader = multer({storage: storage});
+const uploader = multer({storage: storage});
 
 router.post('/upload', uploader.single('avatar'), (req, res, next) => {
     res.send('Upload finished');
-    console.log(req.file);
-    console.log(req.body);
 });
 
 module.exports = router;
