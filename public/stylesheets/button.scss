@@ -1,0 +1,20 @@
+@import "theme.scss";
+
+.button {
+  background-color: white;
+  border: solid 1px $color-primary;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 8px 8px;
+  display: inline-block;
+  padding: 2px 8px;
+  &:hover {
+    border-color: $color-primary;
+    background-color: #EEEEEE;
+  }
+  &:active {
+    border-color: $color-primary;
+    background-color: #CCCCCC;
+  }
+}

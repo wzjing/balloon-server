@@ -48,4 +48,12 @@ router.post('/upload', uploader.single('avatar'), (req, res, next) => {
     res.send('Upload finished');
 });
 
+router.put('/', (req, res, next) => {
+    console.log(`call avatar put [${req.body.name}]`)
+});
+
+router.delete('/', (req, res, next) => {
+    console.log('call avatar delete')
+});
+
 module.exports = router;

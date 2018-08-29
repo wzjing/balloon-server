@@ -2,7 +2,6 @@
   font-family: Logo;
   src: url("/fonts/signpainter_regular.ttf");
   font-weight: normal; }
-
 .logo-icon, .toolbar-logo {
   background: url("/images/logo_icon.svg");
   width: 48px;
@@ -24,7 +23,6 @@
   font-family: Logo;
   src: url("/fonts/signpainter_regular.ttf");
   font-weight: normal; }
-
 .logo-icon, .toolbar-logo {
   background: url("/images/logo_icon.svg");
   width: 48px;

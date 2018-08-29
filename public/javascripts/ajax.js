@@ -14,15 +14,27 @@ function ajax(request) {
         }
     };
     let url = request.url;
-    if (request.method === 'POST') {
-        xmlhttp.open('POST', url, true);
-        xmlhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
-        xmlhttp.send(argBuilder(request.data));
-        console.log('POST REQUEST ---', argBuilder(request.data))
-    } else {
-        xmlhttp.open('GET', `${url}?${argBuilder(request.data)}`, true);
-        xmlhttp.send();
-        console.log('GET REQUEST ---', argBuilder(request.data))
+    switch (request.method) {
+        case 'GET':
+            xmlhttp.open('GET', `${url}?${argBuilder(request.data)}`, true);
+            xmlhttp.send();
+            console.log('GET REQUEST ---', argBuilder(request.data));
+            break;
+        case 'POST':
+            xmlhttp.open('POST', url, true);
+            xmlhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+            xmlhttp.send(argBuilder(request.data));
+            console.log('POST REQUEST ---', argBuilder(request.data));
+            break;
+        case 'PUT':
+            xmlhttp.open('PUT', url, true);
+            xmlhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send(argBuilder(request.data));
+            break;
+        case 'DELETE':
+            xmlhttp.open('DELETE', url, true);
+            xmlhttp.send(null);
+            break;
     }
 }
 

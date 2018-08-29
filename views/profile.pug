@@ -1,8 +1,39 @@
 extends layout
 block head
   head
+    link(rel='stylesheet', href='/stylesheets/button.css')
+    script(src='/javascripts/ajax.js')
     title= title
 block content
   form#avatar(method='post', action='/api/avatar/upload', enctype='multipart/form-data')
     input#uploadfile(name='avatar', type='file')
     input(type='submit', value='上传')
+  .button(onclick='putMethod()') Put
+  .button(onclick='deleteMethod()') Delete
+  script.
+    function putMethod() {
+        ajax({
+            method: 'PUT',
+            url: '/api/avatar',
+            data: {name: 'wzjing'},
+            success: function(status, data){
+                console.log(`Returned: ${data}`)
+            },
+            error: function(error, message) {
+                console.error('error', message)
+            }
+        })
+    }
+
+    function deleteMethod() {
+        ajax({
+            method: 'DELETE',
+            url: '/api/avatar',
+            success: function (status, data) {
+                console.log(`Returned: ${data}`)
+            },
+            error: function (error, message) {
+                console.error('error', message)
+            }
+        })
+    }
