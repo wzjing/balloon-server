@@ -14,9 +14,9 @@ let loginRouter = require('./routes/login');
 let registerRouter = require('./routes/register');
 
 // API
-let loginAPI = require('./api/login');
-let registerAPI = require('./api/register');
-let avatarAPI = require('./api/avatar');
+let loginAPI = require('./routes/api/login');
+let registerAPI = require('./routes/api/register');
+let avatarAPI = require('./routes/api/avatar');
 
 let app = express();
 

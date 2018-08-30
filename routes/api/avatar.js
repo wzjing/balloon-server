@@ -1,9 +1,9 @@
-const token = require('../utils/token');
+const token = require('../../utils/token');
 const express = require('express');
 const fs = require('fs');
 const multer = require('multer');
-const db = require('../database/mongodb');
-const tokenUtil = require('../utils/token');
+const db = require('../../database/mongodb');
+const tokenUtil = require('../../utils/token');
 
 let router = express.Router();
 

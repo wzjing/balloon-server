@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
-let db = require('../database/mysql');
-let token = require('../utils/token');
+let db = require('../../database/mysql');
+let token = require('../../utils/token');
 
 let option = {
     maxAge: 1000 * 60 * 60 * 24,
