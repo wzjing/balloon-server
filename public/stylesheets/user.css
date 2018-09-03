@@ -1,43 +1,51 @@
 @font-face {
   font-family: Logo;
-  src: url("/fonts/signpainter_regular.ttf");
+  src: local("Noto Serif");
   font-weight: normal; }
+
+@font-face {
+  font-family: Normal;
+  src: local("Noto Sans CJK SC Regular"); }
+
 .logo-icon {
-  background: url("/images/logo_icon.svg");
-  width: 48px;
-  height: 48px; }
+  background: url("../../images/logo_icon.svg");
+  width: 32px;
+  height: 32px; }
 
 .logo {
-  background: url("/images/logo.svg"); }
+  background: url("../../images/logo.svg"); }
 
 .logo-colored {
-  background: url("/images/logo-colored.svg"); }
+  background: url("../../images/logo-colored.svg"); }
 
 .text-logo {
   font-family: 'Logo', sans-serif;
-  font-size: 28px;
-  letter-spacing: 4px;
+  font-size: 22px;
   font-weight: normal; }
 
 @font-face {
   font-family: Logo;
-  src: url("/fonts/signpainter_regular.ttf");
+  src: local("Noto Serif");
   font-weight: normal; }
+
+@font-face {
+  font-family: Normal;
+  src: local("Noto Sans CJK SC Regular"); }
+
 .logo-icon {
-  background: url("/images/logo_icon.svg");
-  width: 48px;
-  height: 48px; }
+  background: url("../../images/logo_icon.svg");
+  width: 32px;
+  height: 32px; }
 
 .logo {
-  background: url("/images/logo.svg"); }
+  background: url("../../images/logo.svg"); }
 
 .logo-colored {
-  background: url("/images/logo-colored.svg"); }
+  background: url("../../images/logo-colored.svg"); }
 
 .text-logo {
   font-family: 'Logo', sans-serif;
-  font-size: 28px;
-  letter-spacing: 4px;
+  font-size: 22px;
   font-weight: normal; }
 
 .button {
@@ -56,7 +64,7 @@
     border-color: #000000;
     background-color: #CCCCCC; }
 
-.file-selector-layout {
+.file-selector--layout {
   cursor: pointer; }
 
 .file-selector--button {
@@ -82,6 +90,7 @@
   box-sizing: border-box;
   text-decoration: none;
   opacity: .8;
+  font-size: 0;
   display: none;
   cursor: pointer;
   overflow: hidden; }

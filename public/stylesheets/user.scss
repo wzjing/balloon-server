@@ -1,7 +1,8 @@
 @import "lib/theme.scss";
+@import "lib/toolbar.scss";
 @import "lib/button.scss";
 
-.file-selector-layout {
+.file-selector--layout {
   cursor: pointer;
 }
 
@@ -33,4 +34,8 @@
   display: none;
   cursor: pointer;
   overflow: hidden;
+}
+
+.image-exit {
+
 }

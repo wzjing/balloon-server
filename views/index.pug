@@ -4,14 +4,14 @@ block head
   link(rel='stylesheet', href='/stylesheets/index.css')
 block content
   .toolbar
-    img.toolbar-logo(src='/images/logo_colored.svg')
-    a.toolbar-title(href='#') Balloon
+    img.toolbar-logo
+    .toolbar-title Balloon
     if username
       .avatar-layout
         img.avatar(src='/api/avatar?username=' + username)
         .username= username
     else
-      .login-button(onclick="javascripts:window.location.href='/Login'") Login
+      .login-button(onclick="javascripts:window.location.href='/Login'") 登陆
     .menu-group
       a.menu(href='/user') 用户端
       a.menu(href='/express') 快递员

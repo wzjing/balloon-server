@@ -1,31 +1,47 @@
 $color-primary: #000000;
 $color-primary-dark: #444444;
 $color-accent: #009688;
-$logo-size: 48px;
+$logo-size: 32px;
+
+$images-path: "../../images";
+$fonts-path: "../../fonts";
 
 @font-face {
   font-family: Logo;
-  src: url('/fonts/signpainter_regular.ttf');
+  src: local("Noto Serif");
   font-weight: normal;
 }
 
-.logo-icon {
-  background: url("/images/logo_icon.svg");
-  width: $logo-size;
-  height: $logo-size;
+@font-face {
+  font-family: Normal;
+  src: local("Noto Sans CJK SC Regular");
 }
 
-.logo {
-  background: url("/images/logo.svg");
+.logo-icon {
+  width: $logo-size;
+  height: $logo-size;
+  border: none;
+}
+
+.logo-icon--white {
+  @extend .logo-icon;
+  background: url($images-path + "/logo_icon_white.svg");
+}
+
+.logo-icon--colored {
+  background: url($images-path + "/logo_icon_olored.svg")
+}
+
+.logo-white {
+  background: url($images-path + "/logo_white.svg");
 }
 
 .logo-colored {
-  background: url('/images/logo-colored.svg');
+  background: url($images-path + "/logo_colored.svg");
 }
 
 .text-logo {
   font-family: 'Logo', sans-serif;
-  font-size: 28px;
-  letter-spacing: 4px;
+  font-size: 22px;
   font-weight: normal;
 }

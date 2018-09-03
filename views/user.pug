@@ -5,11 +5,10 @@ block head
     script(src='/javascripts/lib/ajax.js')
     title= title
 block content
-  span.file-selector-layout
-    span.file-selector--button 上传
-    input#uploadfile.file-selector--input(name='avatar', type='file')
-  //.button(onclick='putMethod()') Put
-  //.button(onclick='deleteMethod()') Delete
+  .toolbar
+    img.toolbar-logo(src='/images/logo_colored.svg')
+    .toolbar-title Balloon
+      img.avatar(src='/api/avatar?username=' + username)
   script.
       function putMethod() {
           ajax({
