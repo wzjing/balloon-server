@@ -30,24 +30,26 @@ body{
   }
 }
 
-.poster-layout {
+.poster {
+  @extend .logo-big-white;
   position: relative;
+  width: 240px;
+  height: 240px;
   margin: 50% auto auto;
   transform: translateY(-50%);
 }
 
-.logo-pic {
+.logo-image {
+  @extend .logo-big-colored;
+  width: 90px;
+  height: 90px;
   margin-top: 40px;
 }
 
 .logo-title {
-  font-family: "Logo", monospace;
+  @extend .logo-text;
   width: $input-width;
   margin: 12px auto 0;
-  text-align: center;
-  font-size: 26px;
-  letter-spacing: 6px;
-  font-weight: bold;
 }
 
 form.login {

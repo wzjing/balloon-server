@@ -8,14 +8,13 @@ block content
   .content-panel
     .toolbar
       .toolbar-logo--layout
-        .icon-white
+        .logo-white
       .toolbar-title(style="color:white;") Balloon
-    .poster-layout
-      .logo-white(style="width=240px;height=240px;")
+    .poster
   .login-panel
-    img.logo-colored
+    .logo-image
     .logo-title Balloon
-    form.login(method='POST')
+    form.login
       .hint 账号
       input.text-input(id='username', type='text', name='username', placeholder='手机号或邮箱')
       br
@@ -38,11 +37,15 @@ block content
               url: '/api/login',
               data: {username: username, password: password},
               success: function (status, data) {
-                  window.location.href = '/'
-                  console.log('success', data)
+                  if (data.result) {
+                      console.log(data.message);
+                      window.location.href = '/'
+                  } else {
+                      console.log(data.message)
+                  }
               },
               error: function (error, message) {
-                  console.error('error', message)
+                  console.error('login-error', message)
               }
           })
       }

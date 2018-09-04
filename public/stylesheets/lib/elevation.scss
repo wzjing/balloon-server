@@ -1,0 +1,27 @@
+@mixin elevation($size) {
+  box-shadow: 0 $size 12px 1px rgba(#000, 0.20);
+}
+
+.elevation-1 {
+  @include elevation(1px)
+}
+
+.elevation-2 {
+  @include elevation(2px)
+}
+
+.elevation-3 {
+  @include elevation(3px)
+}
+
+.elevation-4 {
+  @include elevation(4px)
+}
+
+.elevation-5 {
+  @include elevation(5px)
+}
+
+.elevation-6 {
+  @include elevation(6px)
+}

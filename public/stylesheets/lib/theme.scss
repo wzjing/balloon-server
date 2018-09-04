@@ -17,7 +17,11 @@ $fonts-path: "../../fonts";
   src: local("Noto Sans CJK SC Regular");
 }
 
-.icon {
+@mixin image($name) {
+  background: url("/images/" + $name);
+}
+
+@mixin logo {
   display: inline-block;
   width: $logo-size;
   height: $logo-size;
@@ -26,37 +30,35 @@ $fonts-path: "../../fonts";
   color: transparent;
 }
 
-.icon-white {
-  @extend .icon;
+.logo-white {
+  @include logo;
   background: url($images-path + "/icon-white.svg");
 }
 
-.icon-colored {
-  @extend .icon;
+.logo-colored {
+  @include logo;
   background: url($images-path + "/icon-colored.svg")
 }
 
-.logo {
+@mixin logo-big {
   display: inline-block;
-  width: 90px;
-  height: 90px;
   border: none;
   background-color: transparent;
   color: transparent;
 }
 
-.logo-white {
-  @extend .logo;
+.logo-big-white {
+  @include logo-big;
   background: url($images-path + "/logo-white.svg");
 }
 
-.logo-colored {
-  @extend .logo;
+.logo-big-colored {
+  @include logo-big;
   background: url($images-path + "/logo-colored.svg");
 }
 
-.text-logo {
+.logo-text {
   font-family: 'Logo', sans-serif;
   font-size: 22px;
-  font-weight: normal;
+  font-weight: bold;
 }

@@ -5,12 +5,10 @@ block head
 block content
   .toolbar
     .toolbar-logo--layout
-      img.icon-colored
+      .logo-colored
     .toolbar-title Balloon
     if username
-      .avatar-layout
-        img.avatar(src='/api/avatar?username=' + username)
-        .username= username
+      img.avatar(src='/api/avatar?username=' + username, onclick="javascripts:window.location.href='/users/" + username + "'")
     else
       .login-button(onclick="javascripts:window.location.href='/Login'") 登陆
     .menu-group

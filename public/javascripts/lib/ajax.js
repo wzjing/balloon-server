@@ -2,15 +2,20 @@ let xmlhttp = new XMLHttpRequest();
 
 function ajax(request) {
     xmlhttp.onreadystatechange = () => {
-        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            if (request.success !== undefined) {
-                request.success(status, xmlhttp.responseText)
+        if (xmlhttp.readyState === 4) {
+            if (xmlhttp.status === 200) {
+                console.log(`Ajax Response: [${xmlhttp.responseType}] ${xmlhttp.response}`);
+                if (request.success !== undefined) {
+                    request.success(xmlhttp.status, JSON.parse(xmlhttp.responseText))
+                }
+            } else {
+                request.error(xmlhttp.status, xmlhttp.responseText)
             }
         }
     };
     xmlhttp.onerror = ev => {
         if (request.error !== undefined) {
-            request.error(ev.error, ev.message)
+            request.error(xmlhttp.status, ev.message)
         }
     };
     let url = request.url;
@@ -22,7 +27,7 @@ function ajax(request) {
             break;
         case 'POST':
             xmlhttp.open('POST', url, true);
-            xmlhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+            xmlhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             xmlhttp.send(argBuilder(request.data));
             console.log('POST REQUEST ---', argBuilder(request.data));
             break;

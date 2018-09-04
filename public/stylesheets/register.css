@@ -33,7 +33,7 @@
 .logo-colored {
   background: url("../../images/logo-colored.svg"); }
 
-.text-logo, .toolbar-title {
+.logo-text, .toolbar-title {
   font-family: 'Logo', sans-serif;
   font-size: 22px;
   font-weight: normal; }
@@ -73,7 +73,7 @@
 .logo-colored {
   background: url("../../images/logo-colored.svg"); }
 
-.text-logo, .toolbar-title {
+.logo-text, .toolbar-title {
   font-family: 'Logo', sans-serif;
   font-size: 22px;
   font-weight: normal; }
