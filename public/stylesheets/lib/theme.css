@@ -1,22 +1,30 @@
 @font-face {
   font-family: Logo;
-  src: url("/fonts/signpainter_regular.ttf");
+  src: local("Noto Serif");
   font-weight: normal; }
-.logo-icon {
-  background: url("/images/logo_icon.svg");
-  width: 48px;
-  height: 48px; }
+@font-face {
+  font-family: Normal;
+  src: local("Noto Sans CJK SC Regular"); }
+.logo-icon, .logo-icon--white {
+  width: 32px;
+  height: 32px;
+  border: none; }
 
-.logo {
-  background: url("/images/logo.svg"); }
+.logo-icon--white {
+  background: url("../../images/logo_icon_white.svg"); }
+
+.logo-icon--colored {
+  background: url("../../images/logo_icon_olored.svg"); }
+
+.logo-white {
+  background: url("../../images/logo_white.svg"); }
 
 .logo-colored {
-  background: url("/images/logo-colored.svg"); }
+  background: url("../../images/logo_colored.svg"); }
 
 .text-logo {
   font-family: 'Logo', sans-serif;
-  font-size: 28px;
-  letter-spacing: 4px;
+  font-size: 22px;
   font-weight: normal; }
 
 /*# sourceMappingURL=theme.css.map */

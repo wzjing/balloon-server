@@ -1,43 +1,81 @@
 @font-face {
   font-family: Logo;
-  src: url("/fonts/signpainter_regular.ttf");
+  src: local("Noto Serif");
   font-weight: normal; }
-.logo-icon, .toolbar-logo {
-  background: url("/images/logo_icon.svg");
-  width: 48px;
-  height: 48px; }
+@font-face {
+  font-family: Normal;
+  src: local("Noto Sans CJK SC Regular"); }
+.icon, .icon-white, .icon-colored {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: transparent;
+  color: transparent; }
 
-.logo {
-  background: url("/images/logo.svg"); }
+.icon-white {
+  background: url("../../images/icon-white.svg"); }
+
+.icon-colored {
+  background: url("../../images/icon-colored.svg"); }
+
+.logo, .logo-white, .logo-colored {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  border: none;
+  background-color: transparent;
+  color: transparent; }
+
+.logo-white {
+  background: url("../../images/logo-white.svg"); }
 
 .logo-colored {
-  background: url("/images/logo-colored.svg"); }
+  background: url("../../images/logo-colored.svg"); }
 
 .text-logo, .toolbar-title {
   font-family: 'Logo', sans-serif;
-  font-size: 28px;
-  letter-spacing: 4px;
+  font-size: 22px;
   font-weight: normal; }
 
 @font-face {
   font-family: Logo;
-  src: url("/fonts/signpainter_regular.ttf");
+  src: local("Noto Serif");
   font-weight: normal; }
-.logo-icon, .toolbar-logo {
-  background: url("/images/logo_icon.svg");
-  width: 48px;
-  height: 48px; }
+@font-face {
+  font-family: Normal;
+  src: local("Noto Sans CJK SC Regular"); }
+.icon, .icon-white, .icon-colored {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: transparent;
+  color: transparent; }
 
-.logo {
-  background: url("/images/logo.svg"); }
+.icon-white {
+  background: url("../../images/icon-white.svg"); }
+
+.icon-colored {
+  background: url("../../images/icon-colored.svg"); }
+
+.logo, .logo-white, .logo-colored {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  border: none;
+  background-color: transparent;
+  color: transparent; }
+
+.logo-white {
+  background: url("../../images/logo-white.svg"); }
 
 .logo-colored {
-  background: url("/images/logo-colored.svg"); }
+  background: url("../../images/logo-colored.svg"); }
 
 .text-logo, .toolbar-title {
   font-family: 'Logo', sans-serif;
-  font-size: 28px;
-  letter-spacing: 4px;
+  font-size: 22px;
   font-weight: normal; }
 
 html {
@@ -55,21 +93,26 @@ body {
 .toolbar {
   height: 60px;
   margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   white-space: nowrap;
   text-align: left; }
 
-.toolbar-logo {
-  margin: 6px 12px 6px 12px;
-  display: inline-block; }
+.toolbar-logo--layout {
+  display: inline-block;
+  margin: 12px 16px 12px 48px; }
 
 .toolbar-title {
-  position: absolute;
   display: inline-block;
-  margin: 24px 72px auto 12px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  vertical-align: top;
   cursor: pointer;
-  text-decoration: none;
-  color: #000;
-  line-height: 24px; }
+  color: #000000;
+  line-height: 60px; }
 
 .content {
   text-align: center; }

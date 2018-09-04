@@ -17,27 +17,42 @@ $fonts-path: "../../fonts";
   src: local("Noto Sans CJK SC Regular");
 }
 
-.logo-icon {
+.icon {
+  display: inline-block;
   width: $logo-size;
   height: $logo-size;
   border: none;
+  background-color: transparent;
+  color: transparent;
 }
 
-.logo-icon--white {
-  @extend .logo-icon;
-  background: url($images-path + "/logo_icon_white.svg");
+.icon-white {
+  @extend .icon;
+  background: url($images-path + "/icon-white.svg");
 }
 
-.logo-icon--colored {
-  background: url($images-path + "/logo_icon_olored.svg")
+.icon-colored {
+  @extend .icon;
+  background: url($images-path + "/icon-colored.svg")
+}
+
+.logo {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  border: none;
+  background-color: transparent;
+  color: transparent;
 }
 
 .logo-white {
-  background: url($images-path + "/logo_white.svg");
+  @extend .logo;
+  background: url($images-path + "/logo-white.svg");
 }
 
 .logo-colored {
-  background: url($images-path + "/logo_colored.svg");
+  @extend .logo;
+  background: url($images-path + "/logo-colored.svg");
 }
 
 .text-logo {
