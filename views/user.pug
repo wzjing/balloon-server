@@ -6,12 +6,25 @@ block head
     title= title
 block content
   .toolbar.elevation-2
-    .toolbar-logo--layout
+    .toolbar-logo--layout(onclick="javascripts:window.location.href='/'")
       .logo-colored
-    .toolbar-title Balloon
+      .toolbar-title Balloon
     .icon-exit
   .content
     .info-panel.elevation-2
+      .icon-edit
       img.avatar(src='/api/avatar?username=' + username)
-      | #{username}
+      .username= username
+      .row
+        .hint 昵称
+        .value= nickname
+      .row
+        .hint 手机
+        .value= phone
+      .row
+        .hint 邮箱
+        .value= email
+      .row
+        .hint 生日
+        .value= birth
   script.

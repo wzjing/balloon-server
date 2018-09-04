@@ -2,11 +2,9 @@
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
-
 @font-face {
   font-family: Normal;
   src: local("Noto Sans CJK SC Regular"); }
-
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -48,11 +46,9 @@
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
-
 @font-face {
   font-family: Normal;
   src: local("Noto Sans CJK SC Regular"); }
-
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -106,25 +102,22 @@ body {
   height: 60px;
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   white-space: nowrap;
   text-align: left; }
 
 .toolbar-logo--layout {
   display: inline-block;
-  margin: 12px 16px 12px 32px; }
+  margin: 12px 0 12px 32px;
+  cursor: pointer; }
 
 .toolbar-title {
   display: inline-block;
-  margin: 0;
+  margin: 0 0 0 16px;
   padding: 0;
   box-sizing: border-box;
   vertical-align: top;
-  cursor: pointer;
-  color: #000000;
-  line-height: 60px; }
+  color: #000000; }
 
 .content {
   position: absolute;
@@ -137,11 +130,9 @@ body {
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
-
 @font-face {
   font-family: Normal;
   src: local("Noto Sans CJK SC Regular"); }
-
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -213,6 +204,9 @@ body {
 .elevation-6 {
   box-shadow: 0 6px 12px 1px rgba(0, 0, 0, 0.2); }
 
+body {
+  background-color: #F8F8F8; }
+
 .file-selector--layout {
   cursor: pointer; }
 
@@ -255,16 +249,57 @@ body {
   height: 24px;
   border-radius: 16px; }
 
+.icon-edit {
+  background: url("/images/ic_edit.svg");
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: inline-block;
+  padding: 0;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border-radius: 16px; }
+
 .info-panel {
+  position: relative;
   width: 480px;
   min-height: 240px;
-  margin: 50px auto 50px;
-  text-align: center; }
+  margin: 80px auto;
+  padding: 30px 0;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 4px; }
 
 .avatar {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  margin: 30px auto 20px; }
+  margin: 0 auto 12px; }
+
+.username {
+  font-size: 16px;
+  align-content: center;
+  font-weight: bold;
+  margin: 0 auto 20px; }
+
+.hint {
+  width: 80px;
+  white-space: nowrap;
+  color: rgba(0, 0, 0, 0.54);
+  display: inline-block;
+  font-size: 14px; }
+
+.value {
+  width: 40px;
+  white-space: nowrap;
+  color: #000;
+  display: inline-block;
+  font-size: 14px; }
+
+.row {
+  width: 50%;
+  margin: 12px auto 0;
+  text-align: start; }
 
 /*# sourceMappingURL=user.css.map */
