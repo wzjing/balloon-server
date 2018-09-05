@@ -5,26 +5,34 @@ block head
     script(src='/javascripts/lib/ajax.js')
     title= title
 block content
-  .toolbar.elevation-2
+  .toolbar.elevation-1
     .toolbar-logo--layout(onclick="javascripts:window.location.href='/'")
       .logo-colored
       .toolbar-title Balloon
     .icon-exit
   .content
-    .info-panel.elevation-2
+    .info-panel.elevation-1
       .icon-edit
       img.avatar(src='/api/avatar?username=' + username)
+      .file-selector--layout
+        label.file-selector--button(for='avatar-selector') 上传
+        input#avatar-selector.file-selector--input(type='file')
       .username= username
-      .row
-        .hint 昵称
-        .value= nickname
-      .row
-        .hint 手机
-        .value= phone
-      .row
-        .hint 邮箱
-        .value= email
-      .row
-        .hint 生日
-        .value= birth
+      .info
+        .row
+          .hint 昵称
+          .value= nickname
+        .row
+          .hint 手机
+          .value= phone
+        .row
+          .hint 邮箱
+          .value= email
+        .row
+          .hint 生日
+          .value= birth
   script.
+      let selector = document.querySelector('#avatar-selector')
+      selector.onchange = function (ev) {
+          console.log(selector.value)
+      }

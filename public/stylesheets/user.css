@@ -2,9 +2,15 @@
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
+
+@font-face {
+  font-family: Normal-SC;
+  src: local("Noto Sans CJK SC Regular"); }
+
 @font-face {
   font-family: Normal;
   src: local("Noto Sans CJK SC Regular"); }
+
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -46,9 +52,15 @@
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
+
+@font-face {
+  font-family: Normal-SC;
+  src: local("Noto Sans CJK SC Regular"); }
+
 @font-face {
   font-family: Normal;
   src: local("Noto Sans CJK SC Regular"); }
+
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -130,9 +142,15 @@ body {
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
+
+@font-face {
+  font-family: Normal-SC;
+  src: local("Noto Sans CJK SC Regular"); }
+
 @font-face {
   font-family: Normal;
   src: local("Noto Sans CJK SC Regular"); }
+
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -187,56 +205,27 @@ body {
     background-color: #CCCCCC; }
 
 .elevation-1 {
-  box-shadow: 0 1px 12px 1px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.2); }
 
 .elevation-2 {
-  box-shadow: 0 2px 12px 1px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.2); }
 
 .elevation-3 {
   box-shadow: 0 3px 12px 1px rgba(0, 0, 0, 0.2); }
 
 .elevation-4 {
-  box-shadow: 0 4px 12px 1px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 4px 16px 1px rgba(0, 0, 0, 0.2); }
 
 .elevation-5 {
-  box-shadow: 0 5px 12px 1px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.2); }
 
 .elevation-6 {
-  box-shadow: 0 6px 12px 1px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 6px 24px 1px rgba(0, 0, 0, 0.2); }
 
 body {
-  background-color: #F8F8F8; }
-
-.file-selector--layout {
-  cursor: pointer; }
-
-.file-selector--button {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 40px;
-  height: 30px;
-  background-color: #009688;
-  color: white;
-  border-radius: 3px;
-  cursor: pointer;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-.file-selector--input {
-  position: absolute;
-  left: 0;
-  top: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  text-decoration: none;
-  opacity: .8;
-  font-size: 0;
-  display: none;
-  cursor: pointer;
-  overflow: hidden; }
+  position: relative;
+  background-color: #F8F8F8;
+  min-width: 600px; }
 
 .icon-exit {
   background: url("/images/ic_exit.svg");
@@ -248,6 +237,8 @@ body {
   width: 24px;
   height: 24px;
   border-radius: 16px; }
+  .icon-exit:hover {
+    opacity: 0.6; }
 
 .icon-edit {
   background: url("/images/ic_edit.svg");
@@ -260,46 +251,92 @@ body {
   width: 24px;
   height: 24px;
   border-radius: 16px; }
+  .icon-edit:hover {
+    opacity: 0.6; }
 
 .info-panel {
   position: relative;
   width: 480px;
   min-height: 240px;
-  margin: 80px auto;
-  padding: 30px 0;
+  margin: 50px auto;
+  padding: 20px 0 80px;
   box-sizing: border-box;
   text-align: center;
   border-radius: 4px; }
+  @media only screen and (max-width: 800px) {
+    .info-panel {
+      margin: 30px auto; } }
 
 .avatar {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  margin: 0 auto 12px; }
+  margin: 0 auto; }
+
+.file-selector--layout {
+  position: relative;
+  margin: 12px 0 0; }
+
+.file-selector--button {
+  display: inline-block;
+  height: 26px;
+  margin: 0 auto;
+  padding: 0 12px;
+  border-radius: 13px;
+  box-sizing: border-box;
+  background-color: #003CFF;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  line-height: 26px;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 1px 8px 1px rgba(0, 60, 255, 0.2); }
+  .file-selector--button:hover {
+    opacity: 0.6; }
+
+.file-selector--input {
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-decoration: none;
+  opacity: 0;
+  font-size: 0;
+  overflow: hidden; }
 
 .username {
   font-size: 16px;
   align-content: center;
   font-weight: bold;
-  margin: 0 auto 20px; }
+  margin: 12px auto 0; }
+
+.info {
+  position: relative;
+  margin: 32px auto 0;
+  text-align: start;
+  box-sizing: border-box; }
+
+.row {
+  width: 40%;
+  margin: 16px auto 0;
+  text-align: start; }
 
 .hint {
-  width: 80px;
+  font-family: Normal, sans-serif;
+  width: 60px;
   white-space: nowrap;
   color: rgba(0, 0, 0, 0.54);
   display: inline-block;
-  font-size: 14px; }
+  font-size: 12px;
+  font-weight: bold; }
 
 .value {
+  font-family: Normal, sans-serif;
   width: 40px;
   white-space: nowrap;
   color: #000;
   display: inline-block;
-  font-size: 14px; }
-
-.row {
-  width: 50%;
-  margin: 12px auto 0;
-  text-align: start; }
+  font-size: 12px; }
 
 /*# sourceMappingURL=user.css.map */

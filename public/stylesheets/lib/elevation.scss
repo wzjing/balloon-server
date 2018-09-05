@@ -1,5 +1,5 @@
 @mixin elevation($size) {
-  box-shadow: 0 $size 12px 1px rgba(#000, 0.20);
+  box-shadow: 0 $size 8 * $size/2 1px rgba(#000, 0.20);
 }
 
 .elevation-1 {

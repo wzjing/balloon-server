@@ -1,6 +1,6 @@
 $color-primary: #000000;
 $color-primary-dark: #444444;
-$color-accent: #009688;
+$color-accent: #003CFF;
 $logo-size: 32px;
 
 $images-path: "../../images";
@@ -10,6 +10,11 @@ $fonts-path: "../../fonts";
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal;
+}
+
+@font-face {
+  font-family: Normal-SC;
+  src: local("Noto Sans CJK SC Regular");
 }
 
 @font-face {

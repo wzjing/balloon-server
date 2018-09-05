@@ -4,6 +4,10 @@
   font-weight: normal; }
 
 @font-face {
+  font-family: Normal-SC;
+  src: local("Noto Sans CJK SC Regular"); }
+
+@font-face {
   font-family: Normal;
   src: local("Noto Sans CJK SC Regular"); }
 
@@ -48,6 +52,10 @@
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
+
+@font-face {
+  font-family: Normal-SC;
+  src: local("Noto Sans CJK SC Regular"); }
 
 @font-face {
   font-family: Normal;
