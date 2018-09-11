@@ -129,6 +129,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   vertical-align: top;
+  line-height: 60px;
   color: #000000; }
 
 .content {
@@ -226,6 +227,9 @@ body {
   position: relative;
   background-color: #F8F8F8;
   min-width: 600px; }
+  @media only screen and (max-width: 360px) {
+    body {
+      min-width: 360px; } }
 
 .icon-exit {
   background: url("/images/ic_exit.svg");
@@ -263,9 +267,10 @@ body {
   box-sizing: border-box;
   text-align: center;
   border-radius: 4px; }
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 360px) {
     .info-panel {
-      margin: 30px auto; } }
+      margin: 12px auto;
+      width: 331.2px; } }
 
 .avatar {
   width: 70px;

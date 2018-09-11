@@ -35,4 +35,16 @@ block content
       let selector = document.querySelector('#avatar-selector')
       selector.onchange = function (ev) {
           console.log(selector.value)
+          console.log(selector.files[0])
+          ajax({
+              url: '/api/avatar',
+              method: 'POST',
+              data: {
+                  // avatar: selector.files[0],
+                  name: 'wzjing'
+              },
+              success: function () {
+                  console.log('upload successful')
+              }
+          })
       }

@@ -1,4 +1,5 @@
 let xmlhttp = new XMLHttpRequest();
+const boundary = 'ballooooooooooooon';
 
 function ajax(request) {
     xmlhttp.onreadystatechange = () => {
@@ -9,7 +10,10 @@ function ajax(request) {
                     request.success(xmlhttp.status, JSON.parse(xmlhttp.responseText))
                 }
             } else {
-                request.error(xmlhttp.status, xmlhttp.responseText)
+                console.error(`${xmlhttp}: ${xmlhttp.responseText}`);
+                if (request.error !== undefined) {
+                    request.error(xmlhttp.status, xmlhttp.responseText)
+                }
             }
         }
     };
@@ -19,39 +23,44 @@ function ajax(request) {
         }
     };
     let url = request.url;
+    let data;
+    if (request.data instanceof FormData) {
+        data = request.data
+    } else {
+        data = formData(request.data)
+    }
     switch (request.method) {
         case 'GET':
-            xmlhttp.open('GET', `${url}?${argBuilder(request.data)}`, true);
+            xmlhttp.open('GET', `${url}?${data}`, true);
             xmlhttp.send();
-            console.log('GET REQUEST ---', argBuilder(request.data));
+            console.log('GET REQUEST ---', data);
             break;
         case 'POST':
             xmlhttp.open('POST', url, true);
-            xmlhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-            xmlhttp.send(argBuilder(request.data));
-            console.log('POST REQUEST ---', argBuilder(request.data));
+            xmlhttp.setRequestHeader("content-type", `multipart/form-data; boundary=${boundary}`);
+            xmlhttp.send(data);
+            console.log('POST REQUEST ---', data);
             break;
         case 'PUT':
             xmlhttp.open('PUT', url, true);
             xmlhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-            xmlhttp.send(argBuilder(request.data));
+            xmlhttp.send(data);
+            console.log('PUT REQUEST ---', data);
             break;
         case 'DELETE':
             xmlhttp.open('DELETE', url, true);
             xmlhttp.send(null);
+            console.log('DELETE REQUEST ---');
             break;
     }
 }
 
-function argBuilder(data) {
-    let args = '';
+function formData(data) {
+    let form = new FormData();
     if (data !== undefined) {
-        Object.keys(data).forEach((item, index) => {
-            if (index !== 0) {
-                args += '&'
-            }
-            args += `${item}=${data[item]}`
+        Object.keys(data).forEach((item) => {
+            form.append(item, data[item])
         });
     }
-    return args
+    return form
 }

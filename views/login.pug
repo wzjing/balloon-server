@@ -14,7 +14,7 @@ block content
   .login-panel
     .logo-image
     .logo-title Balloon
-    form.login
+    form#login.login
       .hint 账号
       input.text-input(id='username', type='text', name='username', placeholder='手机号或邮箱')
       br
@@ -30,12 +30,11 @@ block content
 
   script.
       function login() {
-          let username = document.querySelector('#username').value;
-          let password = document.querySelector('#password').value;
+          let formData = new FormData(document.querySelector('#login'));
           ajax({
               method: 'POST',
               url: '/api/login',
-              data: {username: username, password: password},
+              data: formData,
               success: function (status, data) {
                   if (data.result) {
                       console.log(data.message);
@@ -44,7 +43,7 @@ block content
                       console.log(data.message)
                   }
               },
-              error: function (error, message) {
+              error: function (status, message) {
                   console.error('login-error', message)
               }
           })

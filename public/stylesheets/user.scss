@@ -6,7 +6,10 @@
 body {
   position: relative;
   background-color: #F8F8F8;
-  min-width: 600px;
+  min-width: $min-width;
+  @media only screen and (max-width: $mobile-width) {
+    min-width: $mobile-width;
+  }
 }
 
 .icon-exit {
@@ -49,8 +52,9 @@ body {
   box-sizing: border-box;
   text-align: center;
   border-radius: 4px;
-  @media only screen and (max-width: 800px) {
-    margin: 30px auto;
+  @media only screen and (max-width: $mobile-width) {
+    margin: 12px auto;
+    width: $mobile-width * 0.92;
   }
 }
 

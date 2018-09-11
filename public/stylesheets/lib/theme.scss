@@ -6,6 +6,9 @@ $logo-size: 32px;
 $images-path: "../../images";
 $fonts-path: "../../fonts";
 
+$min-width: 600px;
+$mobile-width: 360px;
+
 @font-face {
   font-family: Logo;
   src: local("Noto Serif");

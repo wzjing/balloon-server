@@ -129,6 +129,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   vertical-align: top;
+  line-height: 60px;
   color: #000000; }
 
 .content {
