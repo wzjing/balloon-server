@@ -2,15 +2,12 @@
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
-
 @font-face {
   font-family: Normal-SC;
   src: local("Noto Sans CJK SC Regular"); }
-
 @font-face {
   font-family: Normal;
   src: local("Noto Sans CJK SC Regular"); }
-
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -18,6 +15,7 @@
   border: none;
   background-color: transparent;
   color: transparent;
+  vertical-align: center;
   background: url("../../images/icon-white.svg"); }
 
 .logo-colored {
@@ -27,6 +25,7 @@
   border: none;
   background-color: transparent;
   color: transparent;
+  vertical-align: center;
   background: url("../../images/icon-colored.svg"); }
 
 .logo-big-white {
@@ -52,15 +51,12 @@
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
-
 @font-face {
   font-family: Normal-SC;
   src: local("Noto Sans CJK SC Regular"); }
-
 @font-face {
   font-family: Normal;
   src: local("Noto Sans CJK SC Regular"); }
-
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -68,6 +64,7 @@
   border: none;
   background-color: transparent;
   color: transparent;
+  vertical-align: center;
   background: url("../../images/icon-white.svg"); }
 
 .logo-colored {
@@ -77,6 +74,7 @@
   border: none;
   background-color: transparent;
   color: transparent;
+  vertical-align: center;
   background: url("../../images/icon-colored.svg"); }
 
 .logo-big-white {
@@ -111,6 +109,7 @@ body {
   padding: 0; }
 
 .toolbar {
+  position: relative;
   height: 60px;
   margin: 0;
   padding: 0;
@@ -120,7 +119,7 @@ body {
 
 .toolbar-logo--layout {
   display: inline-block;
-  margin: 12px 0 12px 32px;
+  margin: 12px 0 12px 24px;
   cursor: pointer; }
 
 .toolbar-title {
@@ -129,7 +128,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   vertical-align: top;
-  line-height: 60px;
+  line-height: 36px;
   color: #000000; }
 
 .content {
@@ -143,15 +142,12 @@ body {
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
-
 @font-face {
   font-family: Normal-SC;
   src: local("Noto Sans CJK SC Regular"); }
-
 @font-face {
   font-family: Normal;
   src: local("Noto Sans CJK SC Regular"); }
-
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -159,6 +155,7 @@ body {
   border: none;
   background-color: transparent;
   color: transparent;
+  vertical-align: center;
   background: url("../../images/icon-white.svg"); }
 
 .logo-colored {
@@ -168,6 +165,7 @@ body {
   border: none;
   background-color: transparent;
   color: transparent;
+  vertical-align: center;
   background: url("../../images/icon-colored.svg"); }
 
 .logo-big-white {

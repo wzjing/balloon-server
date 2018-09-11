@@ -37,13 +37,14 @@ function ajax(request) {
             break;
         case 'POST':
             xmlhttp.open('POST', url, true);
-            xmlhttp.setRequestHeader("content-type", `multipart/form-data; boundary=${boundary}`);
+            // xmlhttp.setRequestHeader("content-type", `multipart/form-data; boundary=${boundary}`);
+            // xmlhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             xmlhttp.send(data);
             console.log('POST REQUEST ---', data);
             break;
         case 'PUT':
             xmlhttp.open('PUT', url, true);
-            xmlhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            // xmlhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             xmlhttp.send(data);
             console.log('PUT REQUEST ---', data);
             break;

@@ -32,12 +32,12 @@ router.get('/', function (req, res, next) {
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        let position = 'C:\\data\\resources\\images\\avatars';
-        // if (os.platform() === 'win32') {
-        //     position = 'C:\\data\\resources\\images\\avatars';
-        // } else {
-        //     position = '/Users/wzjing/balloondb/images';
-        // }
+        let position;
+        if (os.platform() === 'win32') {
+            position = 'C:\\data\\resources\\images\\avatars';
+        } else {
+            position = '/Users/wzjing/balloondb/images';
+        }
         console.log(`Platform is ${os.platform()}, saving to ${position}`);
         cb(null, position)
     },
@@ -53,7 +53,7 @@ const storage = multer.diskStorage({
 
 const uploader = multer({storage: storage});
 
-router.post('/', (req, res, next) => {
+router.post('/', uploader.single('avatar'), (req, res, next) => {
     if (req.body) {
         console.log(`Name: ${req.body.name}`);
     } else {

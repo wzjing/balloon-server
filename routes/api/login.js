@@ -1,9 +1,10 @@
 const token = require("../../utils/token");
 const express = require("express");
 const db = require("../../database/mongodb");
-let multer = require('multer');
+const multiparty = require('connect-multiparty');
 
 let router = express.Router();
+let multipartyMiddleware = multiparty();
 
 let option = {
     maxAge: 1000 * 60 * 60 * 24,
@@ -11,7 +12,7 @@ let option = {
     signed: false
 };
 
-router.post('/', function (req, res, next) {
+router.post('/', multipartyMiddleware, (req, res, next) => {
     console.log('username', req.body.username);
     db.verifyUser(req.body.username, req.body.password, (error, user) => {
         res.header("Content-Type", "application/json;charset=utf-8");

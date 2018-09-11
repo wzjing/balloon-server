@@ -17,6 +17,7 @@ body {
 }
 
 .toolbar {
+  position: relative;
   height: $toolbar-height;
   margin: 0;
   padding: 0;
@@ -27,7 +28,7 @@ body {
 
 .toolbar-logo--layout {
   display: inline-block;
-  margin: 12px 0 12px 32px;
+  margin: 12px 0 12px 24px;
   cursor: pointer;
 }
 
@@ -38,7 +39,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   vertical-align: top;
-  line-height: $toolbar-height;
+  line-height: $toolbar-height - 24px;
   color: #000000;
 }
 
