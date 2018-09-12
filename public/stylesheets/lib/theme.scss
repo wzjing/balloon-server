@@ -1,6 +1,7 @@
-$color-primary: #000000;
+$color-primary: #ffffff;
 $color-primary-dark: #444444;
-$color-accent: #003CFF;
+$color-accent: #000000;
+$color-secondary-accent: #003CFF;
 $logo-size: 32px;
 
 $images-path: "../../images";
@@ -22,7 +23,7 @@ $mobile-width: 360px;
 
 @font-face {
   font-family: Normal;
-  src: local("Noto Sans CJK SC Regular");
+  src: local("Noto Sans");
 }
 
 @mixin image($name) {

@@ -29,4 +29,8 @@ router.get('/*', function (req, res, next) {
     next()
 });
 
+router.get('/', (req, res, next) => {
+    res.send(`Get Request: ${req.name}`)
+});
+
 module.exports = router;

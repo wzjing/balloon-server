@@ -2,12 +2,15 @@
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
+
 @font-face {
   font-family: Normal-SC;
   src: local("Noto Sans CJK SC Regular"); }
+
 @font-face {
   font-family: Normal;
-  src: local("Noto Sans CJK SC Regular"); }
+  src: local("Noto Sans"); }
+
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -51,12 +54,15 @@
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
+
 @font-face {
   font-family: Normal-SC;
   src: local("Noto Sans CJK SC Regular"); }
+
 @font-face {
   font-family: Normal;
-  src: local("Noto Sans CJK SC Regular"); }
+  src: local("Noto Sans"); }
+
 .logo-white {
   display: inline-block;
   width: 32px;

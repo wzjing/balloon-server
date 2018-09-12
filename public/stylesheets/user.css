@@ -2,12 +2,15 @@
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
+
 @font-face {
   font-family: Normal-SC;
   src: local("Noto Sans CJK SC Regular"); }
+
 @font-face {
   font-family: Normal;
-  src: local("Noto Sans CJK SC Regular"); }
+  src: local("Noto Sans"); }
+
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -51,12 +54,15 @@
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
+
 @font-face {
   font-family: Normal-SC;
   src: local("Noto Sans CJK SC Regular"); }
+
 @font-face {
   font-family: Normal;
-  src: local("Noto Sans CJK SC Regular"); }
+  src: local("Noto Sans"); }
+
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -142,12 +148,15 @@ body {
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
+
 @font-face {
   font-family: Normal-SC;
   src: local("Noto Sans CJK SC Regular"); }
+
 @font-face {
   font-family: Normal;
-  src: local("Noto Sans CJK SC Regular"); }
+  src: local("Noto Sans"); }
+
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -189,7 +198,7 @@ body {
 
 .button {
   background-color: white;
-  border: solid 1px #000000;
+  border: solid 1px #ffffff;
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
@@ -197,10 +206,10 @@ body {
   display: inline-block;
   padding: 2px 8px; }
   .button:hover {
-    border-color: #000000;
+    border-color: #ffffff;
     background-color: #EEEEEE; }
   .button:active {
-    border-color: #000000;
+    border-color: #ffffff;
     background-color: #CCCCCC; }
 
 .elevation-1 {
@@ -287,14 +296,14 @@ body {
   padding: 0 12px;
   border-radius: 13px;
   box-sizing: border-box;
-  background-color: #003CFF;
+  background-color: #000000;
   color: white;
   cursor: pointer;
   text-align: center;
   line-height: 26px;
   font-size: 12px;
   font-weight: bold;
-  box-shadow: 0 1px 8px 1px rgba(0, 60, 255, 0.2); }
+  box-shadow: 0 1px 8px 1px rgba(0, 0, 0, 0.2); }
   .file-selector--button:hover {
     opacity: 0.6; }
 
