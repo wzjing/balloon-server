@@ -1,5 +1,11 @@
 const jwt = require("jsonwebtoken");
 
+let cookieOption = {
+    maxAge: 1000 * 60 * 60 * 48,
+    httpOnly: true, // 不允许客户端操作
+    signed: false
+};
+
 const secret = 'KJFISHB182646';
 const validTime = '2days';
 
@@ -28,6 +34,7 @@ function verify(token) {
 }
 
 module.exports = {
+    cookieOption: cookieOption,
     sign: sign,
     verify: verify
 };

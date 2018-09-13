@@ -9,7 +9,7 @@ block content
     .toolbar-logo--layout(onclick="javascripts:window.location.href='/'")
       .logo-colored
       .toolbar-title Balloon
-    .icon-exit
+    .icon-exit(onclick='logout()')
   .content
     .info-panel.elevation-1
       .icon-edit
@@ -45,6 +45,15 @@ block content
               },
               success: function () {
                   console.log('upload successful')
+              }
+          })
+      }
+      function logout() {
+          ajax({
+              url: '/login/logout',
+              method: 'PSOT',
+              success: function () {
+                  window.location.href = '/'
               }
           })
       }

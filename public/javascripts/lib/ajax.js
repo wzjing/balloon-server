@@ -1,64 +1,51 @@
 function ajax(request) {
     let xhr = new XMLHttpRequest();
+    xhr.timeout = 6000;
+    xhr.responseType = request.type;
     // register events
-    xhr.onreadystatechange = () => {
-        console.log(`onreadystatechange: ${xhr.readyState}`);
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                console.log(`Ajax Response: [${xhr.responseType}] ${xhr.response}`);
-                if (request.success !== undefined) {
-                    request.success(xhr.status, JSON.parse(xhr.responseText))
-                }
-            } else {
-                console.error(`${xhr.status}: ${xhr.statusText}`);
-                if (request.error !== undefined) {
-                    request.error(xhr.status, xhr.statusText)
-                }
-            }
-        }
-    };
     xhr.onerror = err => {
-        console.log(`onerror: ${xhr.readyState}`)
+        console.error(`Network Error when receive: ${request.url}`)
     };
     xhr.ontimeout = () => {
-        console.log(`ontimeout: ${xhr.readyState}`)
+        console.error(`Request receive time out: ${request.url}`)
     };
     xhr.onabort = () => {
-        console.log(`onabort: ${xhr.readyState}`)
+        console.log(`Request abort when receive: ${request.url}`)
     };
     xhr.upload.onerror = err => {
-        console.log(`upload.onerror: ${xhr.readyState}`)
+        console.error(`Network Error when send: ${request.url}`)
     };
     xhr.upload.ontimeout = () => {
-        console.log(`upload.ontimeout: ${xhr.readyState}`)
+        console.error(`Request send time out: ${request.url}`)
     };
     xhr.upload.onabort = () => {
-        console.log(`upload.onabort: ${xhr.readyState}`)
+        console.log(`Request abort when receive: ${request.url}`)
     };
     xhr.onloadstart = () => {
-        console.log(`onloadstart: ${xhr.readyState}`)
+        if (request.onStart !== undefined) request.onStart()
     };
     xhr.upload.onloadstart = () => {
-        console.log(`upload.onloadstart: ${xhr.readyState}`)
+        if (request.onUploadStart !== undefined) request.onUploadStart()
     };
-    xhr.upload.onprogress = () => {
-        console.log(`upload.onprogress: ${xhr.readyState}`)
+    xhr.upload.onprogress = ev => {
+        if (request.onUploading !== undefined) request.onUploading(ev)
     };
     xhr.upload.onload = () => {
-        console.log(`upload.onload: ${xhr.readyState}`);
+        if (request.onUploadSuccess !== undefined) request.onUploadSuccess()
     };
     xhr.upload.onloadend = () => {
-        console.log(`upload.onloadend: ${xhr.readyState}`);
+        if (request.onUploadFinish !== undefined) request.onUploadFinish()
     };
-    xhr.onprogress = () => {
-        console.log(`onprogress: ${xhr.readyState}`);
+    xhr.onprogress = ev => {
+        if (request.onDownloading !== undefined) request.onDownloading(ev)
     };
     xhr.onload = () => {
-        console.log(`onload: ${xhr.readyState}`);
+        if (request.onSuccess !== undefined) request.onSuccess()
     };
     xhr.onloadend = () => {
-        console.log(`onloadend: ${xhr.readyState}`);
+        if (request.onFinish !== undefined) request.onFinish()
     };
+
     // decode parameter data
     let url = request.url;
     let data;
