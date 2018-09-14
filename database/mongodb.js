@@ -6,18 +6,39 @@ const url = 'mongodb://localhost:27017';
 const userDb = 'balloon';
 const userCollection = 'users';
 
-function query(dbName, collectionName, query, callback) {
-    MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
-        assert.equal(null, err);
-        console.log('Connected successfully to server');
+let mongo;
 
-        const db = client.db(dbName);
+function db(cb) {
+    if (mongo) {
+        cb()
+    } else {
+        MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
+            if (err) {
+                console.error(`Unable to connect to mongoDb: ${err}`)
+            }
+            console.log('Connected successfully to server');
+
+            mongo = client;
+
+            cb()
+        })
+    }
+}
+
+function closeDb() {
+    if (mongo) {
+        mongo.close();
+        mongo = null
+    }
+}
+
+function query(dbName, collectionName, query, callback) {
+    db(() => {
+        const db = mongo.db(dbName);
         const collection = db.collection(collectionName);
         collection.find(query).toArray((err, docs) => {
             callback(err, docs)
         });
-
-        client.close();
     });
 }
 
@@ -37,11 +58,8 @@ const WRONG_PASSWORD = 2;
  * @param callback  callback(error, resultUser)
  */
 function verifyUser(username, password, callback) {
-    MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
-        assert.equal(null, err);
-        console.log('Connected successfully to server');
-
-        const db = client.db(userDb);
+    db(() => {
+        const db = mongo.db(userDb);
         const collection = db.collection(userCollection);
         collection.find({username: username}).toArray((err, docs) => {
             if (docs.length === 0) {
@@ -57,32 +75,43 @@ function verifyUser(username, password, callback) {
                 }
             }
         });
-
-        client.close();
     });
 }
 
 function getUser(username, callback) {
-    MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
-        assert.equal(null, err);
-        const db = client.db(userDb);
+    db(() => {
+        const db = mongo.db(userDb);
         const collection = db.collection(userCollection);
         collection.find({username: username}).toArray((err, docs) => {
             if (docs.length === 0) {
                 console.error(`no user of username: ${username}`);
                 callback(INVALID_USER, null)
-            } else  {
+            } else {
                 callback(null, docs[0])
             }
         });
-        client.close();
-    })
+    });
+}
+
+function updateUser(username, info) {
+    db(() => {
+        const db = mongo.db(userDb);
+        const collection = db.collection(userCollection);
+        collection.update({username: username}, {$set: info}, (err, result) => {
+            assert.equal(err, null);
+            assert.equal(result.result.n, 1);
+            console.log(`Update ${username} to ${info}`)
+        });
+    });
 }
 
 module.exports = {
-    query: query,
-    verifyUser: verifyUser,
-    getUser: getUser,
+    db,
+    closeDb,
+    query,
+    verifyUser,
+    getUser,
+    updateUser,
     LOGIN_SUCCESS: LOGIN_SUCCESS,
     INVALID_USER: INVALID_USER,
     WRONG_PASSWORD: WRONG_PASSWORD

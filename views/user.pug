@@ -38,21 +38,22 @@ block content
           console.log(selector.files[0])
           ajax({
               url: '/api/avatar',
-              method: 'POST',
+              method: 'PUT',
               data: {
                   avatar: selector.files[0],
                   name: 'wzjing'
               },
-              success: function () {
-                  console.log('upload successful')
+              onUploadSuccess: function () {
+                  let avatar = document.querySelector('.avatar');
+                  avatar.src = avatar.src + '&' + Math.random()
               }
           })
       }
       function logout() {
           ajax({
               url: '/login/logout',
-              method: 'PSOT',
-              success: function () {
+              method: 'POST',
+              onSuccess: function () {
                   window.location.href = '/'
               }
           })

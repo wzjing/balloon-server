@@ -8,7 +8,7 @@ const os = require('os');
 
 let router = express.Router();
 
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res) {
     db.getUser(req.query.username, (err, user) => {
         if (err) {
             res.send(`error: ${err}`);
@@ -46,24 +46,15 @@ const storage = multer.diskStorage({
         console.log(`User is ${decoded.username}`);
         if (decoded) {
             let fileFormat = (file.originalname).split(".");
-            cb(null, file.fieldname + '-' + Date.now() + "." + fileFormat[fileFormat.length - 1])
+            cb(null, decoded.username + "." + fileFormat[fileFormat.length - 1])
         }
     }
 });
 
 const uploader = multer({storage: storage});
 
-router.post('/', uploader.single('avatar'), (req, res, next) => {
-    if (req.body) {
-        console.log(`Name: ${req.body.name}`);
-    } else {
-        console.log('argument is empty')
-    }
-    res.send({result: 'Upload finished'});
-});
-
-router.put('/', (req, res, next) => {
-    console.log({result: 'put avatar'})
+router.put('/', uploader.single('avatar'), (req, res) => {
+    res.send({result: 'Update Avatar Finished'});
 });
 
 router.delete('/', (req, res, next) => {

@@ -6,7 +6,25 @@ const url = 'mongodb://localhost:27017';
 const userDb = 'balloon';
 const userCollection = 'users';
 
+let mongo;
+let db;
+
+function openDb() {
+    MongoClient.connect(url, {userNewUrlParser: true}, (err, client) => {
+        assert.equal(null, err);
+        console.log('Connected successfully to server');
+
+        mongo = client;
+        db = client.db(dbName);
+    })
+}
+
+function closeDb() {
+    mongo.close()
+}
+
 function query(dbName, collectionName, query, callback) {
+
     MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
         assert.equal(null, err);
         console.log('Connected successfully to server');
@@ -44,4 +62,6 @@ function verifyUser(username, password, callback) {
     });
 }
 
-verifyUser('zhangwei', 'wzjwzjylz');
+function updateAvatar(username) {
+
+}

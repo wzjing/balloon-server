@@ -1,7 +1,18 @@
+Object.assign(FormData.prototype, {
+    toString: function () {
+        let args = '';
+        this.forEach((value, key) => {
+            args += `${key}=${value}&`
+        });
+        args = args.substr(0, args.length > 0 ? args.length - 1 : 0);
+        return args
+    }
+});
+
 function ajax(request) {
     let xhr = new XMLHttpRequest();
-    xhr.timeout = 6000;
-    xhr.responseType = request.type;
+    xhr.timeout = request.timeout !== undefined ? request.timeout : 6000;
+    xhr.responseType = request.type !== undefined ? request.type : 'text';
     // register events
     xhr.onerror = err => {
         console.error(`Network Error when receive: ${request.url}`)
@@ -40,7 +51,26 @@ function ajax(request) {
         if (request.onDownloading !== undefined) request.onDownloading(ev)
     };
     xhr.onload = () => {
-        if (request.onSuccess !== undefined) request.onSuccess()
+        if (request.onSuccess !== undefined) {
+            switch (xhr.responseType) {
+                case '':
+                case 'text':
+                    request.onSuccess(xhr.responseText, xhr.status);
+                    break;
+                case 'document':
+                    request.onSuccess(xhr.responseXML, xhr.status);
+                    break;
+                case 'json':
+                case 'arraybuffer':
+                case 'blob':
+                    request.onSuccess(xhr.response, xhr.status);
+                    break;
+                default:
+                    request.onSuccess('unknown type: ' + xhr.responseType, xhr.status);
+                    break;
+
+            }
+        }
     };
     xhr.onloadend = () => {
         if (request.onFinish !== undefined) request.onFinish()
@@ -57,19 +87,19 @@ function ajax(request) {
     // open request
     switch (request.method) {
         case 'GET':
-            xhr.open('GET', `${url}?${data}`, true);
+            xhr.open('GET', url + '?' + data, true);
             xhr.send();
-            console.log('GET REQUEST ---', data);
+            console.log('GET REQUEST --- ' + data);
             break;
         case 'POST':
             xhr.open('POST', url, true);
             xhr.send(data);
-            console.log('POST REQUEST ---', data);
+            console.log('POST REQUEST --- ' + data);
             break;
         case 'PUT':
             xhr.open('PUT', url, true);
             xhr.send(data);
-            console.log('PUT REQUEST ---', data);
+            console.log('PUT REQUEST --- ' + data);
             break;
         case 'DELETE':
             xhr.open('DELETE', url, true);

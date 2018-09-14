@@ -7,7 +7,7 @@ block head
 block content
   .content-panel
     .toolbar
-      .toolbar-logo--layout
+      .toolbar-logo--layout(onclick="javascript:window.location.href='/'")
         .logo-white
         .toolbar-title(style="color:white;") Balloon
     .poster
@@ -35,23 +35,10 @@ block content
               method: 'POST',
               url: '/api/login',
               data: formData,
-              success: function (status, data) {
-                  if (data.result) {
-                      console.log(data.message);
+              onSuccess: function (data, status) {
+                  if (status === 200) {
                       window.location.href = '/'
-                  } else {
-                      console.log(data.message)
                   }
-              },
-              error: function (status, message) {
-                  console.error('login-error', message)
               }
           })
       }
-      // let text_input = document.querySelectorAll('.text-input');
-      // text_input.forEach(function (el) {
-      //     console.log(getComputedStyle(el, null).getPropertyValue('width'))
-      //     el.style.paddingLeft = '12px';
-      //     el.style.paddingRight = '12px';
-      //     el.style.width = `${parseFloat(getComputedStyle(el, null).getPropertyValue('width').replace('px', '')) - 24}px`;
-      // })

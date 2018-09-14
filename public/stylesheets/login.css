@@ -146,7 +146,7 @@ body {
 
 body {
   display: flex;
-  min-width: 800px; }
+  min-width: 360px; }
 
 .login-panel {
   flex: 1;
@@ -164,9 +164,10 @@ body {
   height: 100%;
   background-color: black;
   text-align: center; }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 360px) {
     .content-panel {
-      flex: 1; } }
+      flex: 0;
+      display: none; } }
 
 .poster {
   position: relative;
