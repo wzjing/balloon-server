@@ -2,10 +2,6 @@
 @import "lib/toolbar.scss";
 @import "lib/elevation.scss";
 
-body {
-  min-width: 800px;
-}
-
 .account {
   position: absolute;
   display: inline-block;
@@ -47,7 +43,7 @@ body {
 .avatar {
   float: right;
   display: inline-block;
-  margin: 8px 16px;
+  margin: ($toolbar-height - 32px)/2 32px;
   padding: 0;
   cursor: pointer;
   width: 32px;
@@ -67,12 +63,34 @@ body {
   margin: 22px 0 0 16px;
   vertical-align: top;
   font-size: 14px;
+  @media only screen and (max-width: $mobile-width) {
+    display: none;
+  }
 }
 
 .menu {
   font-family: Normal-SC, sans-serif;
   text-decoration: none;
-  color: black;
+  color: rgba(black, 0.54);
   margin: 0 26px;
+  padding: 4px 0;
   cursor: pointer;
+  &:hover {
+    color: black;
+  }
+}
+
+
+// User Info Panel
+
+.user-info {
+  position: absolute;
+  top: $toolbar-height + 1px;
+  right: 0;
+  background-color: white;
+  min-width: 100px;
+  min-height: 60px;
+  display: none;
+  box-sizing: border-box;
+  border-radius: 4px;
 }

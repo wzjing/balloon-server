@@ -9,7 +9,8 @@ block content
       .logo-colored
       .toolbar-title Balloon
     if username
-      img.avatar(src='/api/avatar?username=' + username, onclick="javascripts:window.location.href='/users/" + username + "'")
+      img.avatar(src='/api/avatar?username=' + username, onclick="javascripts:window.location.href='/users/" + username + "'"
+      onmouseover='openInfoPanel()' onmouseout='closeInfoPanel()')
     else
       .login-button(onclick="javascripts:window.location.href='/Login'") 登陆
     .menu-group
@@ -17,4 +18,15 @@ block content
       a.menu(href='/express') 快递员
       a.menu(href='/service') 服务说明
       a.menu(href='/about') 关于
+  .user-info.elevation-2
+
   script.
+    let panel = document.querySelector('.user-info');
+    function openInfoPanel() {
+        panel.style.display = 'inline-block';
+        console.log('over')
+    }
+    function closeInfoPanel() {
+        panel.style.display = 'none';
+        console.log('out')
+    }
