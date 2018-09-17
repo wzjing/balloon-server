@@ -9,19 +9,25 @@ block content
       .logo-colored
       .toolbar-title Balloon
     if username
-      img.avatar(src='/api/avatar?username=' + username, onclick="javascripts:window.location.href='/users/" + username + "'"
-      onmouseover='openInfoPanel()' onmouseout='closeInfoPanel()')
+      .user-panel(onmouseover='openInfoPanel()' onmouseout='closeInfoPanel()')
+        img.user-panel--avatar(src='/api/avatar?username=' + username, onclick="javascripts:window.location.href='/users/" + username + "'")
+        .user-panel--info.elevation-2
+          ul
+            li
+              div Profile
+            li
+              .logout-text Logout
+              .logout-icon
     else
-      .login-button(onclick="javascripts:window.location.href='/Login'") 登陆
+      .login-button(onclick="javascripts:window.location.href='/Login'") LOGIN
     .menu-group
-      a.menu(href='/user') 用户端
-      a.menu(href='/express') 快递员
-      a.menu(href='/service') 服务说明
-      a.menu(href='/about') 关于
-  .user-info.elevation-2
+      a.menu(href='/user') GET APP
+      a.menu(href='/express') COURIER
+      a.menu(href='/service') SERVICE
+      a.menu(href='/about') ABOUT
 
   script.
-    let panel = document.querySelector('.user-info');
+    let panel = document.querySelector('.user-panel--info');
     function openInfoPanel() {
         panel.style.display = 'inline-block';
         console.log('over')

@@ -15,21 +15,21 @@ block content
       .icon-edit
       img.avatar(src='/api/avatar?username=' + username)
       .file-selector--layout
-        label.file-selector--button(for='avatar-selector') 上传
+        label.file-selector--button(for='avatar-selector') Change
         input#avatar-selector.file-selector--input(type='file')
       .username= username
       .info
         .row
-          .hint 昵称
+          .hint Name
           .value= nickname
         .row
-          .hint 手机
+          .hint Phone
           .value= phone
         .row
-          .hint 邮箱
+          .hint E-mail
           .value= email
         .row
-          .hint 生日
+          .hint Birth
           .value= birth
   script.
       let selector = document.querySelector('#avatar-selector')

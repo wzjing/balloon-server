@@ -15,18 +15,18 @@ block content
     .logo-image
     .logo-title Balloon
     form#login.login
-      .hint 账号
-      input.text-input(id='username', type='text', name='username', placeholder='手机号或邮箱')
+      .hint Account
+      input.text-input(id='username', type='text', name='username', placeholder='phone e-mail')
       br
-      .hint 密码
-      input.text-input(id='password', type='password', name='password', placeholder='密码')
-      .forgot-pass 忘记密码?
+      .hint Password
+      input.text-input(id='password', type='password', name='password', placeholder='password')
+      .forgot-pass forget pass?
       .error-info
       .button-group
         .button-wrapper
-          .login-button(onclick='login()') 登陆
+          .login-button(onclick='login()') Login
         .button-wrapper
-          .register-button(onclick="javascript:window.location.href='/register'") 注册
+          .register-button(onclick="javascript:window.location.href='/register'") Register
 
   script.
       function login() {
