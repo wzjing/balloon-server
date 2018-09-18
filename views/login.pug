@@ -38,6 +38,8 @@ block content
               onSuccess: function (data, status) {
                   if (status === 200) {
                       window.location.href = '/'
+                  } else {
+                      document.querySelector('.error-info').innerHTML = data
                   }
               }
           })

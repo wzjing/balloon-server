@@ -3,8 +3,20 @@ const assert = require('assert');
 
 // Connection URL
 const url = 'mongodb://localhost:27017';
+
+// User
 const userDb = 'balloon';
 const userCollection = 'users';
+
+// Courier
+const courierDb = 'balloon';
+const courierCollection = 'couriers';
+
+// Order
+const orderDb = 'balloon-order';
+const newOrderCollection = 'newOrder';
+const allOrderCollection = 'allOrder';
+const frozenOrderCollection = 'frozenOrder';
 
 let mongo;
 
@@ -93,15 +105,23 @@ function getUser(username, callback) {
     });
 }
 
-function updateUser(username, info) {
+function updateUser(username, info, cb) {
     db(() => {
         const db = mongo.db(userDb);
         const collection = db.collection(userCollection);
         collection.update({username: username}, {$set: info}, (err, result) => {
             assert.equal(err, null);
             assert.equal(result.result.n, 1);
-            console.log(`Update ${username} to ${info}`)
+            console.log(`Update ${username} to ${info}`);
+            cb(true)
         });
+    });
+}
+
+function newOrder(username, info, cb) {
+    db(() => {
+        const db = mongo.db(orderDb);
+        const collection = db.collection(newOrderCollection)
     });
 }
 

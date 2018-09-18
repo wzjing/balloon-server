@@ -14,6 +14,7 @@ router.post('/', (req, res) => {
         if (error === db.INVALID_USER) {
             res.send({result: false, message: 'no user'})
         } else if (error === db.WRONG_PASSWORD) {
+            res.status(404);
             res.send({result: false, message: 'wrong password'})
         } else {
             res.cookie('token', tokenUtil.sign({username: user.username}), tokenUtil.cookieOption);
