@@ -47,6 +47,14 @@
   font-size: 22px;
   font-weight: bold; }
 
+html {
+  width: 100%;
+  height: 100%; }
+
+body {
+  width: 100%;
+  height: 100%; }
+
 @font-face {
   font-family: Logo;
   src: local("Noto Serif");
@@ -95,6 +103,14 @@
   font-family: 'Logo', sans-serif;
   font-size: 22px;
   font-weight: bold; }
+
+html {
+  width: 100%;
+  height: 100%; }
+
+body {
+  width: 100%;
+  height: 100%; }
 
 html {
   width: 100%;
