@@ -80,7 +80,7 @@ form.login {
   outline: none;
   font-size: 12px;
   &:focus {
-    border-color: $color-primary;
+    border-color: rgba(0, 0, 0, 1.0);
   }
   &::-webkit-input-placeholder {
     color: rgba(#000, 0.54);

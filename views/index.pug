@@ -10,14 +10,14 @@ block content
       .toolbar-title Balloon
     if username
       .user-panel(onmouseover='openInfoPanel()' onmouseout='closeInfoPanel()')
-        img.user-panel--avatar(src='/api/avatar?username=' + username, onclick="javascripts:window.location.href='/users/" + username + "'")
+        img.user-panel--avatar(src='/api/avatar?username=' + username, onclick="toProfile('" + username + "')")
         .user-panel--info.elevation-2
-          ul
-            li
-              div Profile
-            li
-              .logout-text Logout
-              .logout-icon
+          .user-panel--menu
+            .user-panel--menu-text(onclick="toProfile('" + username + "')") 资料
+          .user-panel--menu
+            .user-panel--menu-text 退出
+          .user-panel--menu
+            .user-panel--logout-icon(onclick='logout()')
     else
       .login-button(onclick="javascripts:window.location.href='/Login'") LOGIN
     .menu-group
@@ -27,12 +27,22 @@ block content
       a.menu(href='/about') ABOUT
 
   script.
-    let panel = document.querySelector('.user-panel--info');
-    function openInfoPanel() {
-        panel.style.display = 'inline-block';
-        console.log('over')
-    }
-    function closeInfoPanel() {
-        panel.style.display = 'none';
-        console.log('out')
-    }
+      let panel = document.querySelector('.user-panel--info');
+      function openInfoPanel() {
+          panel.style.display = 'inline-block';
+      }
+      function closeInfoPanel() {
+          panel.style.display = 'none';
+      }
+      function toProfile(username) {
+          window.location.href = '/users/' + username;
+      }
+      function logout() {
+          ajax({
+              url: '/login/logout',
+              method: 'POST',
+              onSuccess: function () {
+                  window.location.href = '/'
+              }
+          })
+      }

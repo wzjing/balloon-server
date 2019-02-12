@@ -2,12 +2,15 @@
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
+
 @font-face {
   font-family: Normal-SC;
   src: local("Noto Sans CJK SC Regular"); }
+
 @font-face {
   font-family: Normal;
   src: local("Noto Sans"); }
+
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -59,12 +62,15 @@ body {
   font-family: Logo;
   src: local("Noto Serif");
   font-weight: normal; }
+
 @font-face {
   font-family: Normal-SC;
   src: local("Noto Sans CJK SC Regular"); }
+
 @font-face {
   font-family: Normal;
   src: local("Noto Sans"); }
+
 .logo-white {
   display: inline-block;
   width: 32px;
@@ -219,7 +225,7 @@ form.login {
   outline: none;
   font-size: 12px; }
   .text-input:focus {
-    border-color: #ffffff; }
+    border-color: black; }
   .text-input::-webkit-input-placeholder {
     color: rgba(0, 0, 0, 0.54); }
 
