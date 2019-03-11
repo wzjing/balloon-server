@@ -1,51 +1,42 @@
 @import "lib/theme.scss";
 @import "lib/toolbar.scss";
+@import "lib/elevation.scss";
 
 $input-width: 60%;
 $input-width--max: 320px;
 
 body {
-  display: flex;
+  position: relative;
   min-width: $mobile-width;
 }
 
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .login-panel {
-  flex: 1;
-  display: inline-block;
-  top: 0;
-  width: 50%;
-  height: 100%;
+  flex: 0 1 300px;
+  display: inline-flex;
+  padding: 20px 40px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: #ffffff;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cdcdcd;
+  border-radius: 4px;
+  height: 400px;
   text-align: center;
-}
-
-.content-panel {
-  flex: 1;
-  display: inline-block;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  background-color: black;
-  text-align: center;
-  @media only screen and (max-width: $mobile-width) {
-    flex: 0;
-    display: none;
-  }
-}
-
-.poster {
-  @extend .logo-big-white;
-  position: relative;
-  width: 240px;
-  height: 240px;
-  margin: 50vh auto auto;
-  transform: translateY(-50%);
 }
 
 .logo-image {
   @extend .logo-big-colored;
-  width: 90px;
-  height: 90px;
-  margin-top: 40px;
+  width: 80px;
+  height: 80px;
 }
 
 .logo-title {
@@ -75,8 +66,11 @@ form.login {
   width: 100%;
   box-sizing: border-box;
   height: 36px;
+  max-width: 220px;
   padding: 0 12px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-style: none none solid none;
+  border-width: 1.5px;
+  border-color: rgba(0, 0, 0, 0.5);
   outline: none;
   font-size: 12px;
   &:focus {
@@ -89,7 +83,7 @@ form.login {
 
 .forgot-pass {
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.32);
+  color: $color-secondary-accent;
   text-align: end;
   cursor: pointer;
   margin: 6px 0 0;
@@ -109,10 +103,10 @@ form.login {
 
 .button {
   display: inline-block;
-  width: 60px;
+  width: 50px;
   margin: 15px 0 0;
-  padding: 10px 12px;
-  border-radius: 2px;
+  padding: 8px 12px;
+  border-radius: 4px;
   outline: none;
   border: none;
   cursor: pointer;
@@ -130,13 +124,15 @@ form.login {
 
 .login-button {
   @extend .button;
-  background: $color-accent;
-  color: #fff;
+  @include elevation(2px);
+  background: $color-secondary-accent;
+  color: #ffffff;
+  align-self: flex-end;
   &:hover {
-    background: rgba($color-accent, 0.85);
+    background: rgba($color-secondary-accent, 0.85);
   }
   &:active {
-    background: $color-accent;
+    background: $color-secondary-accent;
     box-shadow: 0 3px 8px 1px rgba(0, 0, 0, 0.16);
   }
 }

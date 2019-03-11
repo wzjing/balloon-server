@@ -5,28 +5,17 @@ block head
     link(rel='stylesheet', href='/stylesheets/login.css')
     script(src='/javascripts/lib/ajax.js')
 block content
-  .content-panel
-    .toolbar
-      .toolbar-logo--layout(onclick="javascript:window.location.href='/'")
-        .logo-white
-        .toolbar-title(style="color:white;") Balloon
-    .poster
-  .login-panel
-    .logo-image
-    .logo-title Balloon
-    form#login.login
-      .hint Account
+  .toolbar
+    .toolbar-logo--layout(onclick="javascript:window.location.href='/'")
+      .logo-colored
+      .toolbar-title Balloon
+  .content
+    .login-panel.elevation-1
+      .logo-image
       input.text-input(id='username', type='text', name='username', placeholder='phone e-mail')
-      br
-      .hint Password
-      input.text-input(id='password', type='password', name='password', placeholder='password')
-      .forgot-pass forget pass?
-      .error-info
-      .button-group
-        .button-wrapper
-          .login-button(onclick='login()') Login
-        .button-wrapper
-          .register-button(onclick="javascript:window.location.href='/register'") Register
+      .login-button Next
+
+
 
   script.
       function login() {
@@ -44,3 +33,16 @@ block content
               }
           })
       }
+
+      let logo = document.querySelector('.toolbar-logo--layout');
+      let start = logo.style.marginLeft === '' ? 0 : parseInt(logo.style.marginLeft);
+      console.log(`start: ${start}`);
+      let step = 200/60.0;
+      requestAnimationFrame(function (time) {
+          console.log('requestAnimationFrame()')
+          let newLeft = logo.style.marginLeft === '' ? step : parseInt(logo.style.marginLeft)+step;
+          logo.style.marginLeft = newLeft + 'px';
+          if (newLeft < start + 200) {
+              requestAnimationFrame(arguments.callee);
+          }
+      });
