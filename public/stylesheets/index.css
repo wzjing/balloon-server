@@ -234,18 +234,6 @@ body {
   height: 32px;
   border-radius: 50%; }
 
-.user-panel--info {
-  position: absolute;
-  top: 60px;
-  padding-top: 1px;
-  right: 32px;
-  background-color: white;
-  min-width: 100px;
-  min-height: 60px;
-  display: none;
-  box-sizing: border-box;
-  border-radius: 4px; }
-
 .login-button {
   float: right;
   display: inline-block;
@@ -264,17 +252,50 @@ body {
     background-color: #0035ca;
     color: white; }
 
-.icon-exit {
-  background: url("/images/ic_exit.svg");
-  float: right;
-  display: inline-block;
-  margin: 18px 16px;
-  padding: 0;
+.user-panel--info {
+  position: absolute;
+  top: 60px;
+  padding-top: 1px;
+  right: 32px;
+  background-color: white;
+  min-width: 80px;
+  min-height: 60px;
+  display: none;
+  box-sizing: border-box;
+  border-radius: 4px; }
+
+.user-panel--menu {
+  display: flex;
   cursor: pointer;
+  text-align: center;
+  padding: 4px 4px;
+  height: 32px;
+  color: #000;
+  font-size: 14px;
+  font-weight: normal; }
+
+.user-panel--menu-text {
+  margin: auto;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 4px 10px; }
+  .user-panel--menu-text:hover {
+    background: #EFEFEF; }
+
+.user-panel--logout-icon {
+  justify-content: center;
+  align-items: center;
+  background: url("/images/ic_exit.svg");
+  cursor: pointer;
+  margin: auto;
+  padding: 0;
+  box-sizing: border-box;
   width: 24px;
   height: 24px;
   border-radius: 16px; }
-  .icon-exit:hover {
+  .user-panel--logout-icon:hover {
     opacity: 0.6; }
 
 /*# sourceMappingURL=index.css.map */
